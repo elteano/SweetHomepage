@@ -1,0 +1,8 @@
+{
+  "name": "Catchi",
+  "description": "Catchi-ng your ideas!",
+  "repository": "https://github.com/elteano/SweetHomepage",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
