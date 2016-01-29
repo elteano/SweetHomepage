@@ -26,7 +26,7 @@ html body {
 }
 
 .right {
-	.text-align: right;
+	text-align: right;
 }
 
 .footer {
@@ -39,6 +39,11 @@ html body {
 	left: 0;
 }
 
+.footer #organdiv
+{
+	text-align: center;
+}
+
 .footer #upload {
 	position: relative;
 	left: 5%;
@@ -47,7 +52,8 @@ html body {
 .footer #organize
 {
 	position: fixed;
-	left: 50%;
+	width: 6%;
+	left: 47%;
 }
 
 .footer #add
