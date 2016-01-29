@@ -2,14 +2,14 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
+var index = require('./routes/index');
 
 var app = express();
-var index = require('./routes/index');
 app.set('port', (process.env.PORT || 5000));
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
-app.use(express.urlencoded());
+//app.use(express.urlencoded());
 
 app.use(express.static(__dirname + '/public'));
 
