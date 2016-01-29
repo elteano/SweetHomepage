@@ -44,21 +44,25 @@ html body {
 	text-align: center;
 }
 
+.footer button
+{
+	width: 30%;
+}
+
 .footer #upload {
 	position: relative;
-	left: 5%;
+	left: 2%;
 }
 
 .footer #organize
 {
 	position: fixed;
-	width: 6%;
-	left: 47%;
+	left: 35%;
 }
 
 .footer #add
 {
 	position: fixed;
-	right: 5%;
+	right: 2%;
 }
 
