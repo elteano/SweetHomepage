@@ -1,9 +1,9 @@
-var app = express();
 var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
 
+var app = express();
 var index = require('./routes/index');
 app.set('port', (process.env.PORT || 5000));
 app.set('views', path.join(__dirname, 'views'));
