@@ -1,6 +1,6 @@
 {
   "name": "Catchi",
-  "version": "0.1",
+  "version": "0.1.1",
   "description": "Catchi-ng your ideas!",
   "main": "index.js",
   "scripts": {
