@@ -5,7 +5,7 @@ var handlebars = require('express3-handlebars')
 var index = require('./routes/index');
 
 var app = express();
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 3000));
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
