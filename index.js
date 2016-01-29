@@ -1,17 +1,19 @@
-var express = require('express');
 var app = express();
+var express = require('express');
+var http = require('http');
+var path = require('path');
+var handlebars = require('express3-handlebars')
 
+var index = require('./routes/index');
 app.set('port', (process.env.PORT || 5000));
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', handlebars());
+app.set('view engine', 'handlebars');
+app.use(express.urlencoded());
 
 app.use(express.static(__dirname + '/public'));
 
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
-app.get('/', function(request, response) {
-  response.render('pages/index');
-});
+app.get('/', index.view);
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
