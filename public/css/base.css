@@ -45,32 +45,17 @@ html body {
 	bottom: 0;
 	height: 5%;
 	left: 0;
+	display: table;
+	table-layout: fixed;
 }
 
-.footer #organdiv
+.footer div
 {
-	text-align: center;
+	display: table-cell;
 }
 
 .footer button
 {
-	width: auto;
-}
-
-.footer #upload {
-	position: fixed;
-	left: 2%;
-}
-
-.footer #organize
-{
-	position: fixed;
-	left: 35%;
-}
-
-.footer #add
-{
-	position: fixed;
-	right: 2%;
+	width: 100%;
 }
 
