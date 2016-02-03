@@ -9,6 +9,14 @@ html body {
  background: #fafeff;
 }
 
+.center {
+	text-align: center;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 10%;
+	margin-bottom: 20%;
+}
+
 .centerbox {
 	text-align: center;
 	margin-left: 10%;
