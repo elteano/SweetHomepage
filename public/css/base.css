@@ -54,7 +54,7 @@ html body {
 
 .footer button
 {
-	width: 30%;
+	width: auto;
 }
 
 .footer #upload {
