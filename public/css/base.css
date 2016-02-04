@@ -37,7 +37,32 @@ html body {
 	text-align: right;
 }
 
-.footer {
+.midfield
+{
+	position: fixed;
+	bottom: 7%;
+	right: 1%;
+	left: 1%;
+	top: 7%;
+	height: 86%;
+	width: 98%;
+}
+
+.header
+{
+	border-style: none;
+	border-bottom-style: solid;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	height: 5%;
+	left: 0;
+	display: table;
+	table-layout: fixed;
+}
+
+.footer
+{
 	border-style: none;
 	border-top-style: solid;
 	width: 100%;
@@ -49,9 +74,21 @@ html body {
 	table-layout: fixed;
 }
 
+.header div
+{
+	display: table-cell;
+}
+
 .footer div
 {
 	display: table-cell;
+}
+
+.midfield textarea
+{
+	height: 100%;
+	width: 100%;
+	resize: none;
 }
 
 .footer button
