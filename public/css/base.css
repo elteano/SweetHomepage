@@ -76,11 +76,14 @@ html body {
 
 .header div
 {
+	bottom: 0px;
 	display: table-cell;
+	vertical-align: bottom;
 }
 
 .header button
 {
+	bottom: 0px;
 	width: 100%;
 }
 
