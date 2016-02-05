@@ -79,6 +79,11 @@ html body {
 	display: table-cell;
 }
 
+.header button
+{
+	width: 100%;
+}
+
 .footer div
 {
 	display: table-cell;
