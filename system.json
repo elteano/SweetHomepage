@@ -1,0 +1,40 @@
+{
+	"entities": [
+		{
+			// position 0, so id is 0
+			"parent": "-1", // no parent
+			"name": "Doug Engelbart",
+			"description": "Has awesome pet mice",
+			"imageURL": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Douglas_Engelbart_in_2008.jpg/972px-Douglas_Engelbart_in_2008.jpg",
+			"moons": [
+			   "1",
+			   "2"
+			]
+		},
+		{
+			// position 1, so id is 1
+			"parent": "0",
+			"name": "something other than Doug Engelbart",
+			"description": "something other than Has awesome pet mice",
+			"imageURL": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Douglas_Engelbart_in_2008.jpg/972px-Douglas_Engelbart_in_2008.jpg",
+			"moons": [
+				"3"
+			]
+		},
+		{
+			// position 2, so id is 2
+			"parent": "0",
+			"name": "asdf",
+			"description": "stuff",
+			"moons": [
+			]
+		},
+		{
+			"parent": "1",
+			"name": "something",
+			"description": "something interesting",
+			"moons": []
+		}
+		
+	]
+}
