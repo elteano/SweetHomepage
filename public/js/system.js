@@ -7,9 +7,21 @@ $(document).ready(function() {
 function initializePage() {
 	$('#back').click(back_func);
 	$('#new').click(back_func);
+
+  draw_planet();
+}
+
+function draw_planet()
+{
 	var height = $(window).height() * 6 / 10;
 	var loff = $('#circ_canv').offset().left;
 	var center = ($(window).width() - height)/ 2 - loff;
+
+	var c=document.getElementById("circ_canv");
+	var ctx=c.getContext("2d");
+	ctx.beginPath();
+	ctx.arc(100,75,50,0,2*Math.PI);
+	ctx.stroke();
 }
 
 function back_func(e)
