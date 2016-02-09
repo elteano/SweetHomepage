@@ -8,7 +8,8 @@ function initializePage() {
 	$('#back').click(back_func);
 	$('#new').click(back_func);
 	var height = $(window).height() * 6 / 10;
-	var center = ($(window).width() - height)/ 2;
+	var loff = $('#circ').offset().left;
+	var center = ($(window).width() - height)/ 2 - loff;
 	$('#circ').css('height', height);
 	$('#circ').css('width', height);
 	$('#circ').css('top', height / 4);
