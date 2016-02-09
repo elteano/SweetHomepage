@@ -137,3 +137,13 @@ form {
 	border-width: 10px;
 	border-color: #aaffaa;
 }
+
+.center_canv
+{
+  position: fixed;
+  border: solid;
+  border-width: 1px;
+  top: 0;
+  height: 95%;
+  width: 100%;
+}
