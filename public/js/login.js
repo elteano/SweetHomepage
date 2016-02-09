@@ -40,7 +40,32 @@ function initializePage() {
 
 function reg_func(e)
 {
-	toastr.info('Welcome to Catchi!');
+	var user = $('#email').val();
+	var pass = $('#pass').val();
+	if (test_user_validity(user))
+	{
+		userarr.push({
+				"user": user,
+				"pass": pass
+				});
+		toastr.success('Welcome to Catchi!');
+	}
+	else
+	{
+		toastr.error('This username is already taken!');
+	}
+}
+
+function test_user_validity(user)
+{
+	for (var i = 0, len=userarr.length; i < len; i++)
+	{
+		if (user == userarr[i].user)
+		{
+			return false;
+		}
+	}
+	return true;
 }
 
 function on_login(e)
