@@ -126,3 +126,14 @@ form {
                 background-color:#fafafa;
                 color:#207cca;
 }
+
+.center_circle
+{
+	position:relative;
+	height: 50%;
+	width: 50%;
+	border-radius: 100%;
+	border: solid;
+	border-width: 10px;
+	border-color: #aaffaa;
+}

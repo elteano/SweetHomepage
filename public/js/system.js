@@ -7,6 +7,10 @@ $(document).ready(function() {
 function initializePage() {
 	$('#back').click(back_func);
 	$('#new').click(back_func);
+	var height = $(window).height() * 6 / 10;
+	$('#circ').css('height', height);
+	$('#circ').css('width', height);
+	$('#circ').css('top', height / 4);
 }
 
 function back_func(e)
