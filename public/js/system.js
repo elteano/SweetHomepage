@@ -8,9 +8,11 @@ function initializePage() {
 	$('#back').click(back_func);
 	$('#new').click(back_func);
 	var height = $(window).height() * 6 / 10;
+	var center = ($(window).width() - height)/ 2;
 	$('#circ').css('height', height);
 	$('#circ').css('width', height);
 	$('#circ').css('top', height / 4);
+	$('#circ').css('left', center);
 }
 
 function back_func(e)
