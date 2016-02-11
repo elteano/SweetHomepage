@@ -158,3 +158,12 @@ form {
 	right: 5%;
 }
 
+.center_circle div
+{
+	position: relative;
+	left:25%;
+	top:25%;
+	width: 50%;
+	height: 50%;
+}
+
