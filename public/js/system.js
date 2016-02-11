@@ -1,4 +1,5 @@
 'use strict';
+'use base';
 
 $(document).ready(function() {
 	initializePage();
@@ -7,6 +8,16 @@ $(document).ready(function() {
 function initializePage() {
 	$('#back').click(back_func);
 	$('#new').click(back_func);
+	
+	var currentZoom = 1.0;
+    $('.center_circle').click(function() {
+      
+      // $(this).animate({ 'zoom': currentZoom += .5 }, 'slow');
+      $(this).addClass('transition');
+      jQuery.noConflict();
+      $('#myModal').modal(); 
+        
+    });
 
 	var width = $(window).width() / 2;
 	var height = $(window).height() * 6 / 10;
@@ -59,5 +70,20 @@ function back_func(e)
 	};
 	toastr.info('Navigate to same page with new information.');
 }
+
+// function displayPopup(e)
+// {
+// 	$(this).hover(function(e) {
+//     $('div#pop-up').show()
+//       .css('top', e.pageY)
+//       .css('left', e.pageX)
+//       .appendTo('body');
+//   }, function() {
+//     $('div#pop-up').hide();
+//   });
+	
+
+// }
+	
 
 
