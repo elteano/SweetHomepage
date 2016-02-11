@@ -1,6 +1,32 @@
 {
-	"name":	"Sweet Idea",
-	"color": "99eeff",
-	"body": "An idea is a great thing. We don't want to see your ideas go to waste; this is why we create the Catchi app, which will help you remember all of your great ideas in an intuitive fashion."
+	"ideas":
+	[
+		{
+			"parent": "-1",
+			"name":	"Sweet Idea",
+			"color": "99eeff",
+			"body": "An idea is a great thing. We don't want to see your ideas go to waste; this is why we create the Catchi app, which will help you remember all of your great ideas in an intuitive fashion.",
+			"moons": [
+				"1",
+				"2"
+			]
+		},
+		{
+			"parent": "0",
+			"name": "Sweet Children",
+			"color": "0f10aa",
+			"body": "I'm a kid yo",
+			"moons": [
+			]
+		},
+		{
+			"parent": "0",
+			"name": "Kiddo Two",
+			"color": "ee1144",
+			"body": "Sup squiddo",
+			"moons": [
+			]
+		}
+	]
 }
 
