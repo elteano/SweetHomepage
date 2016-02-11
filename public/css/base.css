@@ -144,3 +144,17 @@ form {
 	display: inline-block;
 }
 
+.formtab
+{
+	text-align:left;
+	position: relative;
+	width: 70%;
+	left: 15%;
+}
+
+.formtab .formbox
+{
+	width: 95%;
+	right: 5%;
+}
+
