@@ -19,17 +19,35 @@
 
 <body>
 
+
 <div class= 'planet' style='position:absolute;width:90%; height:90%;'>
   
 	<div class='center_circle' id='circ' style='border-color:#{{color}}'> <!-- data-toggle="modal" data-target="#myModal"> -->
 		<div class='planet_title'>
     		{{ideas.0.name}}
   		</div>
-		<div>
-			{{sysclip ideas.0.body}}
-		</div>
-	</div>
-</div>
+
+	<section class="clearfix">
+
+		<ul class="solarsystem">
+		  <li class="sun"><a href="#sun"><span>Sun</span></a></li>
+		  <li class="mercury"><a href="#mercury"><span>Mercury</span></a></li>
+		  <li class="venus"><a href="#venus"><span>Venus</span></a></li>
+		  <li class="earth"><a href="#earth"><span>Earth<span class="moon"> &amp; Moon</span></span></a></li>
+		  <li class="mars"><a href="#mars"><span>Mars</span></a></li>
+		  <li class="asteroids_meteorids"><span>Asteroids &amp; Meteorids</span></li>
+		  <li class="jupiter"><a href="#jupiter"><span>Jupiter</span></a></li>
+		  <li class="saturn"><a href="#saturn"><span>Saturn &amp; <span class="ring">Ring</span></span></a></li>
+		  <li class="uranus"><a href="#uranus"><span>Uranus</span></a></li>
+		  <li class="neptune"><a href="#neptune"><span>Neptune</span></a></li>
+		  <li class="pluto"><a href="#pluto"><span>Pluto</span></a></li>
+		</ul>
+
+		<ul id="descriptions">
+			
+
+	</section>
+
 
 
  <!-- Modal -->
@@ -57,9 +75,9 @@
 
 
 <div class='footer'>
-	<div><button id='back'>Back</button></div>
-	<div><a href='/list'><button>List</button></a></div>
-	<div><button id='new'>New</button></div>
+	<p><button id='back'> <span class="glyphicon glyphicon-arrow-left"></span></button></p>
+	<div><a href='/list'><button><span class="glyphicon glyphicon-th"></span></button></a></div>
+	<div><button id='new'><span class="glyphicon glyphicon-plus-sign"></span></button></div>
 </div>
 
 	<script src="https://code.jquery.com/jquery.js"></script>
