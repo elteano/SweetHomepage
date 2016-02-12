@@ -71,6 +71,7 @@ html body {
 	left: 0;
 	display: table;
 	table-layout: fixed;
+	background: #f0fefe;
 }
 
 .header div
