@@ -42,6 +42,7 @@ function system_callback(response)
 		for (; i < response.length; i++)
 		{
 			$('.corner-' + (i-1)).html(planet_html(response[i], i));
+			$('.corner-' + (i-1)).css('background', '#' + response[i].color);
 			$('.corner-' + (i-1)).show();
 		}
 		for (; i < 4; i++)
