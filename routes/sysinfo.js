@@ -35,7 +35,7 @@ function search(str, planet_chunk)
 	{
 		if (planet_chunk.ideas[i].name.toLowerCase().indexOf(str) != -1)
 		{
-			ret_arr.push(planet_chunk.ideas[i]);
+			ret_arr.push({"planet": planet_chunk.ideas[i], "ind": i});
 		}
 	}
 	return ret_arr;
@@ -48,7 +48,7 @@ function get_heads(all_data)
 	{
 		if (all_data.ideas[i].parent == "-1")
 		{
-			ret_arr.push(all_data.ideas[i]);
+			ret_arr.push({"planet": all_data.ideas[i], "ind": i});
 		}
 	}
 	return ret_arr;

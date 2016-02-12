@@ -19,6 +19,7 @@ exports.view = function(req, res)
 			return idea.ideas[idea.ideas[ind1].moons[ind2]].color;
 		}
 	};
+	idea.viewme = req.params.id;
 	res.render('pages/system', idea);
 }
 

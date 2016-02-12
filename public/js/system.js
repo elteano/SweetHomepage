@@ -21,7 +21,7 @@ function initializePage() {
 			$('#myModal').modal(); 
 
 			});
-	$.get('/ssys?id=0&moons=1', system_callback);
+	$.get('/ssys?id=' + viewme + '&moons=1', system_callback);
 	$('.corner-0').click(populate_modal);
 	$('.corner-1').click(populate_modal);
 	$('.corner-2').click(populate_modal);
@@ -37,9 +37,14 @@ function system_callback(response)
 	if (response.length > 0)
 	{
 		$('.middle').html(planet_html(response[0], 0));
-		for (var i = 1; i < response.length; i++)
+		var i = 1;
+		for (; i < response.length; i++)
 		{
 			$('.corner-' + (i-1)).html(planet_html(response[i], i));
+		}
+		for (; i < 4; i++)
+		{
+			$('.corner-' + (i-1)).hide();
 		}
 	}
 	else
@@ -121,6 +126,4 @@ function circle()
   $('.planet_title').css('left', title_x);
 	console.log('friendly firebats');
 }
-	
-
 

@@ -51,8 +51,8 @@ function search_input_changed(e)
 function get_planet_html(obj, id)
 {
 	var width = $('.listcontainer').width() / 2;
-	var html = '<div class="systemplanet" style="border-color: #' + obj.color +
-		';"><span>' + obj.name + '</span><div class="id">' + id + '</div></div>'
+	var html = '<div class="systemplanet" style="border-color: #' + obj.planet.color +
+		';"><span>' + obj.planet.name + '</span><div class="id">' + obj.ind + '</div></div>'
 	return html;
 }
 
@@ -84,7 +84,8 @@ function aggregate_planets(obj_list)
 function planet_click(e)
 {
 	e.preventDefault();
-	console.log($(this).find('.id').text());
-	window.location.href = '/system';
+	var id = $(this).find('.id').text();
+	console.log;
+	window.location.href = '/system/' + id;
 }
 
