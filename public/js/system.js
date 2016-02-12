@@ -37,6 +37,7 @@ function system_callback(response)
 	if (response.length > 0)
 	{
 		$('.middle').html(planet_html(response[0], 0));
+		$('.middle').css('background', '#' + response[0].color);
 		var i = 1;
 		for (; i < response.length; i++)
 		{
@@ -67,7 +68,7 @@ function populate_modal(e)
 	console.log('modal stuff: ' + wait_for_click);
 	var child = -1;
 	current_click = $(this).find('#ident').text();
-	if (current_click != -1)
+	if (current_click != 0)
 	{
 		child = current_arr[0].moons[current_click - 1];
 		console.log('Selected child with ident ' + child);
@@ -90,10 +91,13 @@ function populate_modal(e)
 				console.log('timeout fired');
 				if (wait_for_click)
 				{
-					window.location.href = '/system/' + child;
 					wait_for_click = false;
+					if (child != -1)
+					{
+						window.location.href = '/system/' + child;
+					}
 				}
-			}, 500);
+			}, 300);
 	}
 }
 
