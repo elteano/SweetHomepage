@@ -59,5 +59,3 @@ function back_func(e)
 	};
 	toastr.info('Navigate to same page with new information.');
 }
-
-
