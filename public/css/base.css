@@ -102,10 +102,11 @@ html body {
 .footer button
 {
 	width: 100%;
+	min-height: 30px;
 }
 
 form {
-                width:500px;
+                width: 75%;
                 margin:50px auto;
 }
 .search {
@@ -132,8 +133,7 @@ form {
 {
 	text-align:left;
 	position: relative;
-	width: 70%;
-	left: 15%;
+	width: 100%;
 }
 
 .formtab .formbox
