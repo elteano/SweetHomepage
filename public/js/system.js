@@ -8,7 +8,7 @@ $(document).ready(function() {
 function initializePage() {
 	$('#back').click(back_func);
 	$('#new').click(back_func);
-	
+	circle();
 	var currentZoom = 1.0;
     $('.planet').click(function() {
       
@@ -44,7 +44,7 @@ function back_func(e)
 	toastr.info('Navigate to same page with new information.');
 }
 
-function circle(id)
+function circle()
 {
 	var width = $(window).width() / 2;
 	var height = $(window).height() * 6 / 10;
