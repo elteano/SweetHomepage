@@ -2,7 +2,6 @@ var ideas = require('../idea.json');
 
 exports.get_info = function (req, res)
 {
-	console.log(req.query.query);
 	if (req.query && req.query.query)
 	{
 		res.json(search(req.query.query, ideas));
