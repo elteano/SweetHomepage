@@ -45,7 +45,13 @@
           <h4 class="modal-title">Text Editor</h4>
         </div>
         <div class="modal-body">
-          <textarea>{{ideas.0.body}}</textarea>
+					<p>Title<br/>
+					<input type='text' value='{{ideas.0.name}}' style='width:100%'></textarea>
+					</p>
+					<p>
+						Content<br/>
+          <textarea style='width:100%; resize: none'>{{ideas.0.body}}</textarea>
+					</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
