@@ -143,6 +143,8 @@ form {
 	right: 5%;
 }
 
+
+/*Original circle
 .center_circle
 {
        position:relative;
@@ -152,7 +154,8 @@ form {
        border: solid;
        border-width: 10px;
        border-color: #aaffaa;
-}
+			 background: #aaffaa;
+}*/
 
 .planet_title
 {
@@ -176,11 +179,82 @@ form {
 
 }
 
+.orbit {
+    width: 30%;
+    border-radius: 100%;
+    border: 3px solid;
+    margin: 0 auto;
+    position: relative;
+}
 
+.orbit::after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
 
+.orbit-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
+/**
+ * ALTERNATIVELY
+ */
+/*
+.orbit {
+    width: 30vw;
+    height: 30vw;
+    border-radius: 100%;
+    border: 10px solid;
+    margin: 0 auto;
+    position: relative;
+}*/
 
+.corner-1 {
+    position: absolute;
+    background: #50E3C2;
+    width: 25%;
+    border-radius: 100%;
+    height: 25%;
+    top: 0;
+    left: 0;
+}
+.corner-2 {
+    position: absolute;
+    background: #50E3C2;
+    width: 25%;
+    border-radius: 100%;
+    height: 25%;
+    top: 0;
+    right: 0;
+}
+.corner-3 {
+    position: absolute;
+    background: #50E3C2;
+    width: 25%;
+    border-radius: 100%;
+    height: 25%;
+    bottom: 0;
+    left: 0;
+}
+.corner-4 {
+    position: absolute;
+    background: #D4CFCF;
+    width: 10%;
+    border-radius: 100%;
+    height: 10%;
+    bottom: 35px;
+    right: 30px;
 
-
-  
-
+}
+.middle {
+    width: 50%;
+    height: 50%;
+    background: #28826E;
+    border-radius: 100%;
+    margin: 25% auto;
+}
