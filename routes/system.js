@@ -13,6 +13,10 @@ exports.view = function(req, res)
 		"dumblook": function(ind1, ind2)
 		{
 			return idea.ideas[idea.ideas[ind1].moons[ind2]].name;
+		},
+		"dumbcolor": function(ind1, ind2)
+		{
+			return idea.ideas[idea.ideas[ind1].moons[ind2]].color;
 		}
 	};
 	res.render('pages/system', idea);
