@@ -1,5 +1,20 @@
 var ideas = require('../idea.json');
 
+exports.get_one = function (req, res)
+{
+	var ret_json = [ideas.ideas[req.query.id]];
+	if (req.query.moons)
+	{
+		console.log('mooning');
+		var centerplan = ideas.ideas[req.query.id];
+		for (var i = 0; i < centerplan.moons.length; i++)
+		{
+			ret_json.push(ideas.ideas[centerplan.moons[i]]);
+		}
+	}
+	res.json(ret_json);
+}
+
 exports.get_info = function (req, res)
 {
 	if (req.query && req.query.query)

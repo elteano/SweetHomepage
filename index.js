@@ -28,6 +28,7 @@ app.get('/edit', edit_menu.view);
 app.get('/drawedit', drawedit.view);
 app.get('/search', search.view);
 app.get('/sysinfo', sysinfo.get_info);
+app.get('/ssys', sysinfo.get_one);
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

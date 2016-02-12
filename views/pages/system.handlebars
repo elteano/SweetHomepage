@@ -46,18 +46,18 @@
         </div>
         <div class="modal-body">
 					<p>Title<br/>
-					<input type='text' value='{{ideas.0.name}}' style='width:100%'></textarea>
+					<input type='text' id='modal-title-input' value='{{ideas.0.name}}' style='width:100%'></textarea>
 					</p>
 					<p>
 						Content<br/>
-          <textarea style='width:100%; resize: none'>{{ideas.0.body}}</textarea>
+          <textarea id='modal-body-input' style='width:100%; resize: none'>{{ideas.0.body}}</textarea>
 					</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal"
-					style="float: left;">Close</button>
+					style="float: left;" id='close-btn'>Close</button>
           <button type="button" class="btn btn-default"
-					data-dismiss="modal">Save</button>
+					data-dismiss="modal" id='save-btn'>Save</button>
         </div>
       </div>
 
