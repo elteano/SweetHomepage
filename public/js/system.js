@@ -6,6 +6,7 @@ $(document).ready(function() {
 })
 
 var current_arr = [];
+var current_click = -1;
 
 function initializePage() {
 	$('#back').click(back_func);
@@ -26,6 +27,7 @@ function initializePage() {
 	$('.corner-2').click(populate_modal);
 	$('.corner-3').click(populate_modal);
 	$('.middle').click(populate_modal);
+	$('#save-btn').click(save_modal);
 }
 
 function system_callback(response)
@@ -54,9 +56,16 @@ function planet_html(json, id)
 
 function populate_modal(id)
 {
-	var lookup = $(this).find('#ident').text();
-	$('#modal-title-input').val(current_arr[lookup].name);
-	$('#modal-body-input').val(current_arr[lookup].body);
+	current_click = $(this).find('#ident').text();
+	$('#modal-title-input').val(current_arr[current_click].name);
+	$('#modal-body-input').val(current_arr[current_click].body);
+}
+
+function save_modal(e)
+{
+	current_arr[current_click].name = $('#modal-title-input').val();
+	current_arr[current_click].body = $('#modal-body-input').val();
+	system_callback(current_arr);
 }
 
 function back_func(e)
