@@ -1,0 +1,75 @@
+html body
+{
+	margin: 0;
+}
+
+.popupsearch
+{
+	position: fixed;
+	width:100%;
+	height: 5%;
+	bottom: 0px;
+	padding-left:3%;
+	padding-right:3%;
+	margin: 0;
+	display: none;
+}
+
+.popupsearch input
+{
+	margin: 0;
+	width:94%;
+}
+
+.systemplanet
+{
+	position: relative;
+	width: 50%;
+	border-radius: 100%;
+	line-height: 50vw;
+	border: solid;
+	border-width: 5px;
+	border-color: #aaffaa;
+	display: table-cell;
+	text-align: center;
+}
+
+.listcontainer
+{
+	width: 94%;
+	padding-left: 3%;
+	padding-right: 3%;
+	padding-top: 3%;
+	height: 95%;
+	top: 0;
+}
+
+.listrow
+{
+	display: table;
+	width: 100%;
+	height: 50vw;
+	table-layout: fixed;
+}
+
+.planet_container
+{
+	display: table-cell;
+	display: block;
+	content: "";
+	width: 100%;
+	height: 100%;
+}
+
+.systemplanet span
+{
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+.systemplanet .id
+{
+	display: none;
+}
+
