@@ -25,13 +25,9 @@
 			<div class="orbit-content">
 					{{#each ideas.0.moons}}
 					<div class="corner-{{@index}} vertical-center-text"
-					data-toggle='modal' data-target= '#myModal'>{{ideas.1.name}}</div>
+					data-toggle='modal' data-target= '#myModal'>{{dumblook 0 @index}}</div>
 					{{/each}}
-					<!--
-					<div class="corner-2 vertical-center-text" data-toggle='modal' data-target= '#myModal'>Drag to trash to delete</div>
-					<div class="corner-3 vertical-center-text" data-toggle='modal' data-target= '#myModal'>Double Tap to Edit</div>
-					<div class="corner-4 vertical-center-text" data-toggle='modal' data-target= '#myModal'>+</div>
-					-->
+					<div class="corner-3 vertical-center-text" data-toggle='modal' data-target= '#myModal'>+</div>
 					<div class="middle vertical-center-text" data-toggle='modal'
 					data-target= '#myModal'>{{ideas.0.name}}</div>
 			</div>
@@ -48,7 +44,7 @@
           <h4 class="modal-title">Text Editor</h4>
         </div>
         <div class="modal-body">
-          <p>Enter Text Here!</p>
+          <textarea>{{ideas.0.body}}</textarea>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

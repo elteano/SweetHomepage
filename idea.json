@@ -3,16 +3,51 @@
 	[
 		{
 			"parent": "-1",
-			"name":	"Sweet Idea",
-			"color": "99eeff",
-			"body": "An idea is a great thing. We don't want to see your ideas go to waste; this is why we create the Catchi app, which will help you remember all of your great ideas in an intuitive fashion.",
+			"name": "Welcome!",
+			"color": "aaeeff",
+			"body": "Welcome to Ideorbit!",
 			"moons": [
 				"1",
-				"2"
+				"2",
+				"3"
 			]
 		},
 		{
 			"parent": "0",
+			"name": "Hold to Move",
+			"color": "eeeeee",
+			"body": "Nothing here!",
+			"moons": [
+			]
+		},
+		{
+			"parent": "0",
+			"name": "Drag to trash to delete",
+			"color": "123456",
+			"body": "nothing here still!",
+			"moons": [
+			]
+		},
+		{
+			"parent": "0",
+			"name": "Double tap to edit!",
+			"color": "abcdef",
+			"body": "Edit me please!",
+			"moons": [
+			]
+		},
+		{
+			"parent": "-1",
+			"name":	"Sweet Idea",
+			"color": "99eeff",
+			"body": "An idea is a great thing. We don't want to see your ideas go to waste; this is why we create the Catchi app, which will help you remember all of your great ideas in an intuitive fashion.",
+			"moons": [
+				"5",
+				"6"
+			]
+		},
+		{
+			"parent": "4",
 			"name": "Sweet Children",
 			"color": "0f10aa",
 			"body": "I'm a kid yo",
@@ -20,7 +55,7 @@
 			]
 		},
 		{
-			"parent": "0",
+			"parent": "4",
 			"name": "Sweet Kiddo Two",
 			"color": "ee1144",
 			"body": "Sup squiddo",

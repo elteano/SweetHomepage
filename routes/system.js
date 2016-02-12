@@ -9,6 +9,10 @@ exports.view = function(req, res)
 					return str.substring(0, 25) + '...';
 				}
 				return str;
+		},
+		"dumblook": function(ind1, ind2)
+		{
+			return idea.ideas[idea.ideas[ind1].moons[ind2]].name;
 		}
 	};
 	res.render('pages/system', idea);
