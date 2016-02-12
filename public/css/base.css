@@ -222,7 +222,7 @@ form {
     position: relative;
 }*/
 
-.corner-1 {
+.corner-0 {
     position: absolute;
     background: #F0ECC0;
     width: 25%;
@@ -231,7 +231,7 @@ form {
     top: 0;
     left: 0;
 }
-.corner-2 {
+.corner-1 {
     position: absolute;
     background: #75A48B;
     width: 25%;
@@ -240,7 +240,7 @@ form {
     top: 0;
     right: 0;
 }
-.corner-3 {
+.corner-2 {
     position: absolute;
     background: #DC9B74;
     width: 25%;
@@ -249,7 +249,7 @@ form {
     bottom: 0;
     left: 0;
 }
-.corner-4 {
+.corner-3 {
     position: absolute;
     background: #F1EEEE;
     width: 10%;
