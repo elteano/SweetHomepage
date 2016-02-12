@@ -43,6 +43,14 @@ function search_click(e)
 
 function search_input_changed(e)
 {
+	if ($(this).val() == "")
+	{
+		$('#title').text('Central Ideas');
+	}
+	else
+	{
+		$('#title').text('Search Results');
+	}
 	var url = '/sysinfo?query=' + $(this).val();
 	console.log(url);
 	$.get(url, planet_callback);
@@ -51,7 +59,7 @@ function search_input_changed(e)
 function get_planet_html(obj, id)
 {
 	var width = $('.listcontainer').width() / 2;
-	var html = '<div class="systemplanet" style="border-color: #' + obj.planet.color +
+	var html = '<div class="systemplanet" style="background: #' + obj.planet.color +
 		';"><span>' + obj.planet.name + '</span><div class="id">' + obj.ind + '</div></div>'
 	return html;
 }
