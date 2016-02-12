@@ -5,7 +5,6 @@ exports.get_one = function (req, res)
 	var ret_json = [ideas.ideas[req.query.id]];
 	if (req.query.moons)
 	{
-		console.log('mooning');
 		var centerplan = ideas.ideas[req.query.id];
 		for (var i = 0; i < centerplan.moons.length; i++)
 		{

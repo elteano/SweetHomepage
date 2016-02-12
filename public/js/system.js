@@ -59,11 +59,42 @@ function planet_html(json, id)
 	'</div>';
 }
 
-function populate_modal(id)
+var wait_for_click = false;
+
+function populate_modal(e)
 {
+	e.preventDefault();
+	console.log('modal stuff: ' + wait_for_click);
+	var child = -1;
 	current_click = $(this).find('#ident').text();
-	$('#modal-title-input').val(current_arr[current_click].name);
-	$('#modal-body-input').val(current_arr[current_click].body);
+	if (current_click != -1)
+	{
+		child = current_arr[0].moons[current_click - 1];
+		console.log('Selected child with ident ' + child);
+	}
+	if (wait_for_click)
+	{
+		console.log('We waited, they came.');
+		wait_for_click = false;
+		$('#modal-title-input').val(current_arr[current_click].name);
+		$('#modal-body-input').val(current_arr[current_click].body);
+		$('#myModal').modal();
+	}
+	else
+	{
+		console.log('Start waiting.');
+		wait_for_click = true;
+		console.log('Wait for click: ' + wait_for_click);
+		setTimeout(function()
+			{
+				console.log('timeout fired');
+				if (wait_for_click)
+				{
+					window.location.href = '/system/' + child;
+					wait_for_click = false;
+				}
+			}, 500);
+	}
 }
 
 function save_modal(e)

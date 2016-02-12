@@ -9,9 +9,6 @@
 	<link href='/css/toastr.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 	<!-- //Jesse's circle -->
   <meta charset="utf-8">
@@ -25,7 +22,7 @@
 			<div class="orbit-content">
 					{{#each ideas.0.moons}}
 					<div class="corner-{{@index}} vertical-center-text"
-					data-toggle='modal' data-target= '#myModal' style="background:
+					style="background:
 					#{{dumbcolor 0 @index}}">{{dumblook 0 @index}}</div>
 					{{/each}}
 					<div class="corner-3 vertical-center-text" data-toggle='modal' data-target= '#myModal'>+</div>
@@ -72,6 +69,7 @@
 
 	<script>var viewme={{viewme}}</script>
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src='/js/toastr.min.js'></script>
 	<script src='/js/system.js'></script>
 </body>
