@@ -1,16 +1,39 @@
 // custom search based on the JSON representation of the data.
 
-function search(str, planet_chunk)
+$(document).ready(function() {
+	$.get('/sysinfo', planet_callback);
+	$('#search').click(search_click);
+	$('#searchbar').on('input', search_input_changed);
+});
+
+var search_toggle = false;
+
+function planet_callback(response)
 {
-	var ret_arr = [];
-	str = str.toLowerCase();
-	for (var i = 0; i < planet_chunk.ideas.length; i++)
+	console.log(response);
+}
+
+function search_click(e)
+{
+	e.preventDefault();
+	var popup = $('.popupsearch');
+	if (search_toggle)
 	{
-		if (planet_chunk.ideas[i].name.toLowerCase().indexOf(str) != -1)
-		{
-			ret_arr.push(i);
-		}
+		popup.css('bottom', 0);
+		popup.css('display', 'none');
 	}
-	return ret_arr;
+	else
+	{
+		popup.css('display', 'block');
+		popup.css('bottom', $('.footer').height() + 5);
+	}
+	search_toggle = !search_toggle;
+}
+
+function search_input_changed(e)
+{
+	var url = '/sysinfo?query=' + $(this).val();
+	console.log(url);
+	$.get(url, planet_callback);
 }
 
