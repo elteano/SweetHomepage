@@ -24,7 +24,7 @@
 			"parent": "0",
 			"name": "Drag to trash to delete",
 			"color": "929456",
-			"body": "nothing here still!",
+			"body": "Nothing here still!",
 			"moons": [
 			]
 		},
@@ -32,7 +32,7 @@
 			"parent": "0",
 			"name": "Double tap to edit!",
 			"color": "abcdef",
-			"body": "Edit me please!",
+			"body": "Change the title above to modify what you see in the overview!  Changes here will not be displayed in the overview, but will remain here for you to check later!",
 			"moons": [
 			]
 		},
