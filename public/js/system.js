@@ -127,7 +127,14 @@ function back_func(e)
 		"showMethod": "fadeIn",
 		"hideMethod": "fadeOut"
 	};
-	toastr.info('Navigate to same page with new information.');
+	if (current_arr[0].parent != "-1")
+	{
+		window.location.href = '/system/' + current_arr[0].parent;
+	}
+	else
+	{
+		toastr.info("You're already at the top!");
+	}
 }
 
 function circle()
