@@ -18,18 +18,22 @@
 	<title>Test</title>
 	<link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
 
-</head>
-
+</head> 
 <body>
-
 
 	<div class="orbit" id= 'circ'>
 			<div class="orbit-content">
-					<div class="corner-1 vertical-center-text" data-toggle='modal' data-target= '#myModal'>  Hold to Move </div>
+					{{#each ideas.0.moons}}
+					<div class="corner-{{@index}} vertical-center-text"
+					data-toggle='modal' data-target= '#myModal'>{{ideas.1.name}}</div>
+					{{/each}}
+					<!--
 					<div class="corner-2 vertical-center-text" data-toggle='modal' data-target= '#myModal'>Drag to trash to delete</div>
 					<div class="corner-3 vertical-center-text" data-toggle='modal' data-target= '#myModal'>Double Tap to Edit</div>
 					<div class="corner-4 vertical-center-text" data-toggle='modal' data-target= '#myModal'>+</div>
-					<div class="middle vertical-center-text" data-toggle='modal' data-target= '#myModal'> Title</div>
+					-->
+					<div class="middle vertical-center-text" data-toggle='modal'
+					data-target= '#myModal'>{{ideas.0.name}}</div>
 			</div>
 	</div>
 
