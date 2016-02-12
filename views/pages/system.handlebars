@@ -20,13 +20,11 @@
 
 	<div class="orbit" id= 'circ'>
 			<div class="orbit-content">
-					{{#each ideas.0.moons}}
-					<div class="corner-{{@index}} vertical-center-text"
-					style="background:
-					#{{dumbcolor 0 @index}}">{{dumblook 0 @index}}</div>
-					{{/each}}
-					<div class="corner-3 vertical-center-text" data-toggle='modal' data-target= '#myModal'>+</div>
-					<div class="middle vertical-center-text">{{ideas.0.name}}</div>
+					<div class="corner-0 vertical-center-text unselectable" style="display:none;"></div>
+					<div class="corner-1 vertical-center-text unselectable" style="display:none;"></div>
+					<div class="corner-2 vertical-center-text unselectable" style="display:none;"></div>
+					<div class="corner-3 vertical-center-text unselectable" data-toggle='modal' data-target= '#myModal'>+</div>
+					<div class="middle vertical-center-text unselectable"></div>
 			</div>
 	</div>
 
