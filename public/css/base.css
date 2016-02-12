@@ -193,11 +193,19 @@ form {
 }
 
 .orbit-content {
+		text-align: center;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+		/*line-height: 3vw;*/
+}
+
+.vertical-center-text {
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center;
 }
 
 /**
