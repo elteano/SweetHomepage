@@ -37,6 +37,7 @@ function search_click(e)
 	{
 		popup.css('display', 'block');
 		popup.css('bottom', $('.footer').height() + 5);
+		$('#searchbar').focus();
 	}
 	search_toggle = !search_toggle;
 }
