@@ -1,13 +1,28 @@
 'use strict';
 'use base';
 
+// Function called when the page becomes loaded
 $(document).ready(function() {
 	initializePage();
 })
 
+/*
+ * The current array of systems being displayed.
+ *
+ * The item at location 0 should always be the central planet, with 1-4 being
+ * the moons, if they are present. The moon at location 1 of this array will always
+ * be the same moon identified in location 0 of the center planet's "moons"
+ * array.
+ */
 var current_arr = [];
+/* If the user should be clicking / tapping on things, this will identify the
+ * location within the current_arr array of the item being clicked / tapped.
+ */
 var current_click = -1;
+// Variable used for processing double clicks.
+var wait_for_click = false;
 
+// All the initialization stuff.
 function initializePage() {
 	$('#back').click(back_func);
 	$('#new').click(back_func);
@@ -30,6 +45,15 @@ function initializePage() {
 	$('#save-btn').click(save_modal);
 }
 
+/*
+ * Handle the information obtained from a GET request to the /ssys information
+ * node. This information will be an array of planets, which will be stored
+ * into current_arr for later use, and used to generate the display on the
+ * system page.
+ *
+ * This function may also be used with current_arr as input in order to refresh
+ * the display with updated information.
+ */
 function system_callback(response)
 {
 	console.log(response);
@@ -56,14 +80,29 @@ function system_callback(response)
 	}
 }
 
+/*
+ * Gets a chunk of HTML code for a planet which you would like to display.
+ *
+ * The JSON is of the planet / moon only, and the ID should be the planet's
+ * location in the current_arr array.
+ *
+ * This function does not place the HTML anywhere, only generates it.
+ */
 function planet_html(json, id)
 {
 	return '<div>' + json.name + '</div><div id="ident" style="display:none;">' + id +
 	'</div>';
 }
 
-var wait_for_click = false;
-
+/*
+ * A misnomer. Actually handles clicks and double clicks.
+ *
+ * If the user single clicks, then this function redirects them to the system
+ * page they clicked.
+ *
+ * If the user double clicks, then this function will display the edit modal,
+ * populated with all the data on the planet or moon they double clicked.
+ */
 function populate_modal(e)
 {
 	e.preventDefault();
@@ -103,6 +142,10 @@ function populate_modal(e)
 	}
 }
 
+/*
+ * Saves the data which the user has input into the modal and refreshes the
+ * page with the new information.
+ */
 function save_modal(e)
 {
 	current_arr[current_click].name = $('#modal-title-input').val();
@@ -110,6 +153,9 @@ function save_modal(e)
 	system_callback(current_arr);
 }
 
+/*
+ * Function for handling up navigation to the parent planet.
+ */
 function back_func(e)
 {
 	toastr.options = {
@@ -139,6 +185,13 @@ function back_func(e)
 	}
 }
 
+/*
+ * Draws a circle.
+ *
+ * Does not seem like it should be necessary, although this function is
+ * currently what centers the system, and so is absolutely necessary until CSS
+ * replaces that function.
+ */
 function circle()
 {
 	var width = $(window).width() / 2;
