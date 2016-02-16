@@ -10,6 +10,7 @@ var edit_menu = require('./routes/edit_menu');
 var drawedit = require('./routes/drawedit');
 var search = require('./routes/search');
 var sysinfo = require('./routes/sysinfo');
+var edit = require('./routes/edit');
 
 var app = express();
 app.set('port', (process.env.PORT || 3000));
@@ -29,6 +30,7 @@ app.get('/drawedit', drawedit.view);
 app.get('/search', search.view);
 app.get('/sysinfo', sysinfo.get_info);
 app.get('/ssys', sysinfo.get_one);
+app.post('/add', edit.add);
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
