@@ -1,5 +1,3 @@
-// Querystring allows us to parse the message body into a JS object.
-var querystring = require('querystring');
 var ideas = require('../idea.json');
 
 function parse_data(data)
@@ -17,7 +15,6 @@ function parse_data(data)
 			var rightb = data_part[0].indexOf('%5D');
 			var bigvar = data_part[0].substring(0, leftb);
 			var subvar = data_part[0].substring(leftb+3, rightb);
-			console.log('var is ' + bigvar + '.' + subvar);
 			if (!(bigvar in obj))
 			{
 				obj[bigvar] = {};
@@ -54,12 +51,18 @@ function parse_data(data)
 			obj[data_part[0]] = data_part[1];
 		}
 	}
-	console.log(obj);
+	return obj;
 }
 
 exports.add = function (req, res)
 {
-	console.log('adding object');
+	console.log('adding object not yet implemented');
+	// Placeholder
+}
+
+exports.edit = function (req, res)
+{
+	var input = {};
 	// This stores the raw string data sent by the client
 	var body = "";
 	// Callback function for when data is received.
@@ -73,9 +76,11 @@ exports.add = function (req, res)
 	{
 		// Parse the client data into a JS object
 		console.log(body);
-		var input = querystring.parse(body);
-		parse_data(body);
-		//console.log(input);
+		input = parse_data(body);
+		console.log(input);
+		var index = input.index;
+		delete input.index; // don't want these lingering around
+		ideas.ideas[index] = input;
 	});
 }
 

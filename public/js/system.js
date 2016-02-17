@@ -7,6 +7,14 @@ $(document).ready(function() {
 })
 
 /*
+ * viewme
+ *
+ * This variable is set in the system.handlebars page. This refers to the
+ * currently viewed system, which is definied using the handlebars template and
+ * made available to this script.
+ */
+
+/*
  * The current array of systems being displayed.
  *
  * The item at location 0 should always be the central planet, with 1-4 being
@@ -19,6 +27,11 @@ var current_arr = [];
  * location within the current_arr array of the item being clicked / tapped.
  */
 var current_click = -1;
+/*
+ * This is similar to the above, but this stores the absolute index for the
+ * selected item.
+ */
+var current_master_index = -1;
 // Variable used for processing double clicks.
 var wait_for_click = false;
 
@@ -113,6 +126,11 @@ function populate_modal(e)
 	{
 		child = current_arr[0].moons[current_click - 1];
 		console.log('Selected child with ident ' + child);
+		current_master_index = child;
+	}
+	else
+	{
+		current_master_index = viewme;
 	}
 	if (wait_for_click)
 	{
@@ -151,6 +169,9 @@ function save_modal(e)
 	current_arr[current_click].name = $('#modal-title-input').val();
 	current_arr[current_click].body = $('#modal-body-input').val();
 	system_callback(current_arr);
+	var newplan = current_arr[current_click];
+	newplan.index = current_master_index;
+	$.post('/edit', newplan);
 }
 
 /*
