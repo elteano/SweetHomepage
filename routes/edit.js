@@ -4,8 +4,57 @@ var ideas = require('../idea.json');
 
 function parse_data(data)
 {
+	var obj = {};
+	data = data.replace(/\+/g, ' ');
+	data = data.replace(/%5B%5D/g, '');
 	data_chunk = data.split('&');
-	console.log(data_chunk);
+	for (var i = 0; i < data_chunk.length; i++)
+	{
+		data_part = data_chunk[i].split('=');
+		var leftb = data_part[0].indexOf('%5B');
+		if (leftb != -1)
+		{
+			var rightb = data_part[0].indexOf('%5D');
+			var bigvar = data_part[0].substring(0, leftb);
+			var subvar = data_part[0].substring(leftb+3, rightb);
+			console.log('var is ' + bigvar + '.' + subvar);
+			if (!(bigvar in obj))
+			{
+				obj[bigvar] = {};
+			}
+			if (subvar in obj[bigvar])
+			{
+				if (obj[bigvar][subvar].constructor === Array)
+				{
+					obj[bigvar][subvar].push(data_part[1]);
+				}
+				else
+				{
+					obj[bigvar][subvar] = [obj[bigvar][subvar], data_part[1]];
+				}
+			}
+			else
+			{
+				obj[bigvar][subvar] = data_part[1];
+			}
+		}
+		else if (data_part[0] in obj)
+		{
+			if (obj[data_part[0]].constructor === Array)
+			{
+				obj[data_part[0]].push(data_part[1]);
+			}
+			else
+			{
+				obj[data_part[0]] = [obj[data_part[0]], data_part[1]];
+			}
+		}
+		else
+		{
+			obj[data_part[0]] = data_part[1];
+		}
+	}
+	console.log(obj);
 }
 
 exports.add = function (req, res)
@@ -26,7 +75,7 @@ exports.add = function (req, res)
 		console.log(body);
 		var input = querystring.parse(body);
 		parse_data(body);
-		console.log(input);
+		//console.log(input);
 	});
 }
 
