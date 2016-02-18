@@ -56,6 +56,24 @@ function initializePage() {
 	$('.corner-3').click(populate_modal);
 	$('.middle').click(populate_modal);
 	$('#save-btn').click(save_modal);
+	$('#modal-tab-text').click(modal_text);
+	$('#modal-tab-color').click(modal_color);
+}
+
+function modal_text(e)
+{
+	e.preventDefault();
+	console.log('text pressed');
+	$('#modal-color-edit').css('display', 'none');
+	$('#modal-text-edit').css('display', 'block');
+}
+
+function modal_color(e)
+{
+	e.preventDefault();
+	console.log('color pressed');
+	$('#modal-color-edit').css('display', 'block');
+	$('#modal-text-edit').css('display', 'none');
 }
 
 /*
