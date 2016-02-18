@@ -60,6 +60,11 @@ function initializePage() {
 	$('#modal-tab-color').click(modal_color);
 }
 
+function color_slider_change(e)
+{
+	console.log(h_to_rgb($(this).val()));
+}
+
 function modal_text(e)
 {
 	e.preventDefault();
@@ -186,6 +191,8 @@ function save_modal(e)
 {
 	current_arr[current_click].name = $('#modal-title-input').val();
 	current_arr[current_click].body = $('#modal-body-input').val();
+	console.log(h_to_rgb($('#modal-selected-color').val()));
+	current_arr[current_click].color = h_to_rgb($('#modal-selected-color').val());
 	system_callback(current_arr);
 	var newplan = current_arr[current_click];
 	newplan.index = current_master_index;
@@ -261,5 +268,61 @@ function circle()
   $('.planet_title').css('top', title_y);
   $('.planet_title').css('left', title_x);
 	console.log('friendly firebats');
+}
+
+function h_to_rgb(hue)
+{
+	// Hue is in range [0, 359]
+	// Using formula from Wikipedia
+	var newh = hue / 60.0;
+	// Saturation and Value are always both 100%
+	var C = 1;
+	var X = 1 - Math.abs((newh % 2) - 1);
+	// These are each in a range [0, 1] for now.
+	var r = 0;
+	var g = 0;
+	var b = 0;
+	if (newh < 1)
+	{
+		r = C;
+		g = X;
+	}
+	else if (newh < 2)
+	{
+		r = X;
+		g = C;
+	}
+	else if (newh < 3)
+	{
+		g = C;
+		b = X;
+	}
+	else if (newh < 4)
+	{
+		g = X;
+		b = C;
+	}
+	else if (newh < 5)
+	{
+		r = X;
+		b = C;
+	}
+	else if (newh < 6)
+	{
+		r = C;
+		b = X;
+	}
+	// Get everything in range [0,255]
+	r = Math.floor(r * 255);
+	b = Math.floor(b * 255);
+	g = Math.floor(g * 255);
+	// Convert everything to hex
+	r = ('00' + r.toString(16));
+	g = ('00' + g.toString(16));
+	b = ('00' + b.toString(16));
+	r = r.substring(r.length - 2, r.length);
+	g = g.substring(g.length - 2, g.length);
+	b = b.substring(b.length - 2, b.length);
+	return '' + r + g + b;
 }
 
