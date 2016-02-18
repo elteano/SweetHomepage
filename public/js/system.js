@@ -38,7 +38,7 @@ var wait_for_click = false;
 // All the initialization stuff.
 function initializePage() {
 	$('#back').click(back_func);
-	$('#new').click(back_func);
+	$('#new').click(new_func);
 	circle();
 	var currentZoom = 1.0;
 	$('.planet').click(function() {
@@ -324,5 +324,11 @@ function h_to_rgb(hue)
 	g = g.substring(g.length - 2, g.length);
 	b = b.substring(b.length - 2, b.length);
 	return '' + r + g + b;
+}
+
+function new_func(e)
+{
+
+	
 }
 

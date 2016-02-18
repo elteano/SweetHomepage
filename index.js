@@ -31,6 +31,8 @@ app.get('/sysinfo', sysinfo.get_info);
 app.get('/ssys', sysinfo.get_one);
 app.post('/add', edit.add);
 app.post('/edit', edit.edit);
+app.get('/system/:id', system.addSystem);
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
