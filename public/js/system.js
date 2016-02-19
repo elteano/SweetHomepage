@@ -58,6 +58,7 @@ function initializePage() {
 	$('#save-btn').click(save_modal);
 	$('#modal-tab-text').click(modal_text);
 	$('#modal-tab-color').click(modal_color);
+	$('#add-child-btn').click(add_child);
 }
 
 function color_slider_change(e)
@@ -343,6 +344,19 @@ function h_to_rgb(hue)
 	g = g.substring(g.length - 2, g.length);
 	b = b.substring(b.length - 2, b.length);
 	return '' + r + g + b;
+}
+
+function add_child(e)
+{
+	console.log('adding child');
+	var childinfo = {
+		'parent': viewme,
+		'name': 'New Moon',
+		'body': 'Change me!',
+		'color': 'aaaaaa',
+		'moons': []
+	}
+	$.post('/add_child', childinfo);
 }
 
 function new_func(e) {

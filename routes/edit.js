@@ -69,6 +69,31 @@ exports.add = function (req, res)
 	res.json({'id': ideas.ideas.length - 1});
 }
 
+exports.add_child = function (req, res)
+{
+	var input = {};
+	// This stores the raw string data sent by the client
+	var body = "";
+	// Callback function for when data is received.
+	req.on('data', function(chunk)
+	{
+		// Aggregate the data sent by the client
+		body += chunk.toString();
+	});
+	// Callback function for when the client declares no more data will be sent
+	req.on('end', function()
+	{
+		// Parse the client data into a JS object
+		input = parse_data(body);
+		console.log('adding a child:');
+		console.log(input);
+		ideas.ideas.push(input);
+		ideas.ideas[input.parent].moons.push(ideas.ideas.length - 1);
+		console.log('updated parent:');
+		console.log(ideas.ideas[input.parent]);
+	});
+}
+
 exports.edit = function (req, res)
 {
 	var input = {};
@@ -84,8 +109,8 @@ exports.edit = function (req, res)
 	req.on('end', function()
 	{
 		// Parse the client data into a JS object
-		console.log(body);
 		input = parse_data(body);
+		console.log('editing a planetoid:');
 		console.log(input);
 		var index = input.index;
 		delete input.index; // don't want these lingering around

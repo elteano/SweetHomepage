@@ -24,7 +24,7 @@ app.get('/sysinfo', sysinfo.get_info);
 app.get('/ssys', sysinfo.get_one);
 app.post('/add', edit.add);
 app.post('/edit', edit.edit);
-app.get('/system/:id', system.addSystem);
+app.post('/add_child', edit.add_child);
 
 
 app.listen(app.get('port'), function() {
