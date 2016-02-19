@@ -5,10 +5,6 @@ var handlebars = require('express3-handlebars')
 var index = require('./routes/index');
 var system = require('./routes/system');
 var list = require('./routes/list');
-var textedit = require('./routes/textedit');
-var edit_menu = require('./routes/edit_menu');
-var drawedit = require('./routes/drawedit');
-var search = require('./routes/search');
 var sysinfo = require('./routes/sysinfo');
 var edit = require('./routes/edit');
 
@@ -24,9 +20,6 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', index.view);
 app.get('/system/:id', system.view);
 app.get('/list', list.view);
-app.get('/textedit', textedit.view);
-app.get('/drawedit', drawedit.view);
-app.get('/search', search.view);
 app.get('/sysinfo', sysinfo.get_info);
 app.get('/ssys', sysinfo.get_one);
 app.post('/add', edit.add);
