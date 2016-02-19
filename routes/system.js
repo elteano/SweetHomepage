@@ -23,17 +23,16 @@ exports.view = function(req, res)
 	res.render('pages/system', idea);
 }
 
-exports.addSystem = function(req, res) {   
+exports.addSystem = function(req, res) {
 idea["ideas"].push({
 			"parent": "-1",
 			"name": 'New Idea',
 			"color": '888888',
 			"body": 'Fill me in',
 			"moons": []
-					
+
 });
 res.render('pages/system/' + (idea.ideas.length-1),idea);
 
 
 }
-

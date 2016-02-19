@@ -9,12 +9,21 @@
 			"moons": [
 				"1",
 				"2",
-				"3"
+				"3",
+				"4"
 			]
 		},
 		{
 			"parent": "0",
-			"name": "Hold to Move",
+			"name": "",
+			"color": "eeeeee",
+			"body": "Nothing here!",
+			"moons": [
+			]
+		},
+		{
+			"parent": "0",
+			"name": "Tap to View",
 			"color": "eeeeee",
 			"body": "Nothing here!",
 			"moons": [
@@ -30,7 +39,7 @@
 		},
 		{
 			"parent": "0",
-			"name": "Double tap to edit!",
+			"name": "Double tap to edit",
 			"color": "abcdef",
 			"body": "Change the title above to modify what you see in the overview!  Changes here will not be displayed in the overview, but will remain here for you to check later!",
 			"moons": [
@@ -40,7 +49,7 @@
 			"parent": "-1",
 			"name":	"Sweet Idea",
 			"color": "99eeff",
-			"body": "An idea is a great thing. We don't want to see your ideas go to waste; this is why we create the Catchi app, which will help you remember all of your great ideas in an intuitive fashion.",
+			"body": "An idea is a great thing. We don't want to see your ideas go to waste; this is why we create the Ideorbit app, which will help you remember all of your great ideas in an intuitive fashion.",
 			"moons": [
 				"5",
 				"6"
@@ -64,4 +73,3 @@
 		}
 	]
 }
-

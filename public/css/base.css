@@ -255,8 +255,9 @@ form {
     width: 10%;
     border-radius: 100%;
     height: 10%;
-    bottom: 53px;
-    right: 30px;
+    bottom: 66px;
+    right: -3px;
+		display: none;
 
 }
 .middle {
@@ -265,6 +266,7 @@ form {
     background: #ffffff;
     border-radius: 100%;
     margin: 25% auto;
+		box-shadow: 0px 1px 3px rgba(0, 0, 0 , 0.3);
 }
 .unselectable {
     -webkit-touch-callout: none;
@@ -273,4 +275,50 @@ form {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+.planet-wrapper {
+	position: absolute;
+	left: 37.5%;
+	/*background: green;*/
+	width: 25%;
+	height: 50%;
+	-webkit-transition: all 1s;
+	-webkit-transform-origin: bottom center;
+	-webkit-transform: rotate(0deg);
+}
+
+.planet {
+	position: absolute;
+	background: pink;
+	width: 100%;
+	border-radius: 100%;
+	height: 50%;
+	top: -25%;
+	left: 0;
+	-webkit-transform: rotate(0deg);
+	box-shadow: 0px 1px 3px rgba(0, 0, 0 , 0.3);
+}
+
+.planet-wrapper2 {
+	position: absolute;
+	left: 45%;
+	/*background: green;*/
+	width: 10%;
+	height: 50%;
+	-webkit-transition: all 1s;
+	-webkit-transform-origin: bottom center;
+	-webkit-transform: rotate(0deg);
+}
+
+.planet2 {
+	position: absolute;
+	background: rgb(238, 233, 206);
+	width: 100%;
+	border-radius: 100%;
+	height: 20%;
+	top: -10%;
+	left: 0;
+	-webkit-transform: rotate(0deg);
+	box-shadow: 0px 1px 3px rgba(0, 0, 0 , 0.3);
+
 }

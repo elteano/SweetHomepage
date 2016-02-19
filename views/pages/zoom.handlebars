@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Catchi/Ideorbit</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/base.css" rel="stylesheet">
+	<link href='/css/toastr.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<!-- //Jesse's circle -->
+  <meta charset="utf-8">
+	<title>Test</title>
+	<link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+
+</head>
+
+<body>
+	<div class="orbit" id= 'circ'>
+			<div class="orbit-content">
+					<div class="corner-3 vertical-center-text" data-toggle='modal' data-target= '#myModal'>Double Tap to Edit</div>
+			</div>
+	</div>
+
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Text Editor</h4>
+        </div>
+        <div class="modal-body">
+          <p>Enter Text Here!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class='footer'>
+	<p><button id='back'> <span class="glyphicon glyphicon-arrow-left"></span></button></p>
+	<div><a href='/list'><button><span class="glyphicon glyphicon-th"></span></button></a></div>
+	<div><button id='new'><span class="glyphicon glyphicon-plus-sign"></span></button></div>
+</div>
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src='js/toastr.min.js'></script>
+	<script src='js/system.js'></script>
+</body>
+
+</html>

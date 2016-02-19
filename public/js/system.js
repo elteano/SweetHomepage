@@ -46,7 +46,7 @@ function initializePage() {
 			//$(this).animate({ 'zoom': currentZoom += .5 }, 'slow');
 			$(this).addClass('transition');
 			jQuery.noConflict();
-			$('#myModal').modal(); 
+			$('#myModal').modal();
 
 			});
 	$.get('/ssys?id=' + viewme + '&moons=1', system_callback);
@@ -99,12 +99,30 @@ function system_callback(response)
 		$('.middle').html(planet_html(response[0], 0));
 		$('.middle').css('background', '#' + response[0].color);
 		var i = 1;
+		var startDegree = -45;
+		var degrees = 360 / (response.length);
 		for (; i < response.length; i++)
 		{
-			$('.corner-' + (i-1)).html(planet_html(response[i], i));
-			$('.corner-' + (i-1)).css('background', '#' + response[i].color);
-			$('.corner-' + (i-1)).show();
+			var planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable">'+planet_html(response[i], i)+'</div></div>');
+			planet.insertBefore('.corner-3');
+			planet.find('.planet').css('background', '#' + response[i].color);
+			// $('.corner-' + (i-1)).html(planet_html(response[i], i));
+			// $('.corner-' + (i-1)).css('background', '#' + response[i].color);
+			// $('.corner-' + (i-1)).show();
 		}
+		setTimeout(function () {
+			var planets = $('.planet-wrapper');
+			for (i = 0; i < planets.length; i++) {
+				var currRotation = startDegree + (degrees * i);
+				$(planets[i]).css('transform', 'rotate(' + -currRotation + 'deg)');
+				$(planets[i]).find('.planet').css('transform', 'rotate(' + currRotation +'deg)');
+			}
+			var currRotation = startDegree + (degrees * i);
+			$('.planet-wrapper2').css('transform', 'rotate(' + -currRotation + 'deg)');
+			$('.planet2').css('transform', 'rotate(' + currRotation +'deg)');
+		}, 200);
+
+
 		for (; i < 4; i++)
 		{
 			$('.corner-' + (i-1)).hide();
@@ -326,11 +344,10 @@ function h_to_rgb(hue)
 	return '' + r + g + b;
 }
 
-function new_func(e) {     
+function new_func(e) {
 
 	console.log(current_arr.length-1);
 	$.get("/system/"+current_arr.length-1,callBack);
 
 
 }
-
