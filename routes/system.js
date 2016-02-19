@@ -33,6 +33,4 @@ idea["ideas"].push({
 
 });
 res.render('pages/system/' + (idea.ideas.length-1),idea);
-
-
 }

@@ -6,9 +6,14 @@ exports.get_one = function (req, res)
 	if (req.query.moons)
 	{
 		var centerplan = ideas.ideas[req.query.id];
-		for (var i = 0; i < centerplan.moons.length; i++)
+		console.log('get_one centerplan');
+		console.log(centerplan);
+		if (centerplan.moons)
 		{
-			ret_json.push(ideas.ideas[centerplan.moons[i]]);
+			for (var i = 0; i < centerplan.moons.length; i++)
+			{
+				ret_json.push(ideas.ideas[centerplan.moons[i]]);
+			}
 		}
 	}
 	res.json(ret_json);

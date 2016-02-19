@@ -12,6 +12,7 @@ function initializePage()
 	$('#search').click(search_click);
 	$('#searchbar').on('input', search_input_changed);
 	$('.systemplanet').click(planet_click);
+	$('#new-btn').click(new_click);
 }
 
 var search_toggle = false;
@@ -96,5 +97,14 @@ function planet_click(e)
 	var id = $(this).find('.id').text();
 	console.log;
 	window.location.href = '/system/' + id;
+}
+
+function new_click(e)
+{
+	e.preventDefault();
+	$.post('/add', function(result)
+	{
+		window.location.href = '/system/' + result.id;
+	});
 }
 

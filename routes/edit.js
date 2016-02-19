@@ -57,7 +57,15 @@ function parse_data(data)
 exports.add = function (req, res)
 {
 	console.log('adding object not yet implemented');
-	// Placeholder
+	var newplanet = {
+		'parent': '-1',
+		'name': 'New System, Change Me!',
+		'body': 'Change me too!',
+		'color': '888888',
+		'moons': []
+	};
+	ideas.ideas.push(newplanet);
+	res.json({'id': ideas.ideas.length - 1});
 }
 
 exports.edit = function (req, res)

@@ -346,9 +346,6 @@ function h_to_rgb(hue)
 }
 
 function new_func(e) {
-
 	console.log(current_arr.length-1);
 	$.get("/system/"+current_arr.length-1,callBack);
-
-
 }
