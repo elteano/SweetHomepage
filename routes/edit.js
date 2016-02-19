@@ -4,6 +4,7 @@ function parse_data(data)
 {
 	var obj = {};
 	data = data.replace(/\+/g, ' ');
+	data = data.replace(/%2C/g, ' ');
 	data = data.replace(/%5B%5D/g, '');
 	data_chunk = data.split('&');
 	for (var i = 0; i < data_chunk.length; i++)
