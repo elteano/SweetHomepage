@@ -82,5 +82,10 @@ exports.edit = function (req, res)
 		delete input.index; // don't want these lingering around
 		ideas.ideas[index] = input;
 	});
-}
+	exports.addChild = function (req, res)
+	{
+		var input = {};
+		var body = "";
 
+	}
+}
