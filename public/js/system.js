@@ -109,6 +109,7 @@ function system_callback(response)
 			// $('.corner-' + (i-1)).html(planet_html(response[i], i));
 			// $('.corner-' + (i-1)).css('background', '#' + response[i].color);
 			// $('.corner-' + (i-1)).show();
+			planet.click(populate_modal);
 		}
 		setTimeout(function () {
 			var planets = $('.planet-wrapper');
