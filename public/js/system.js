@@ -356,7 +356,11 @@ function add_child(e)
 		'color': 'aaaaaa',
 		'moons': []
 	}
-	$.post('/add_child', childinfo);
+	$.post('/add_child', childinfo, function(result)
+	{
+		console.log('add child stuff');
+		location.reload();
+	});
 }
 
 function new_func(e) {

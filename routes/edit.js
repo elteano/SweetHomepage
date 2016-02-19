@@ -91,6 +91,8 @@ exports.add_child = function (req, res)
 		ideas.ideas[input.parent].moons.push(ideas.ideas.length - 1);
 		console.log('updated parent:');
 		console.log(ideas.ideas[input.parent]);
+		// Tell them everything is okay
+		res.status(200).send('OK').end();
 	});
 }
 
