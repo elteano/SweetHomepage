@@ -32,8 +32,8 @@ var current_click = -1;
  * selected item.
  */
 var current_master_index = -1;
-// Variable used for processing double clicks.
-var wait_for_click = false;
+// Variable used for processing long clicks
+var wait_for_up = false;
 
 // All the initialization stuff.
 function initializePage() {
@@ -115,7 +115,8 @@ function system_callback(response)
 			var planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable">'+planet_html(response[i], i)+'</div></div>');
 			planet.insertBefore('.corner-3');
 			planet.find('.planet').css('background', '#' + response[i].color);
-			planet.click(populate_modal);
+			planet.mousedown(populate_modal);
+			planet.mouseup(modal_mouseup);
 		}
 		setTimeout(function () {
 			var planets = $('.planet-wrapper');
@@ -172,7 +173,7 @@ function planet_html(json, id)
 function populate_modal(e)
 {
 	e.preventDefault();
-	console.log('modal stuff: ' + wait_for_click);
+	console.log('modal stuff: ' + wait_for_up);
 	var child = -1;
 	current_click = $(this).find('#ident').text();
 	if (current_click != 0)
@@ -185,32 +186,33 @@ function populate_modal(e)
 	{
 		current_master_index = viewme;
 	}
-	if (wait_for_click)
-	{
-		console.log('We waited, they came.');
-		wait_for_click = false;
-		$('#modal-title-input').val(current_arr[current_click].name);
-		$('#modal-body-input').val(current_arr[current_click].body);
-		$('#modal-selected-color').val(rgb_to_h(current_arr[current_click].color));
-		$('#myModal').modal();
-	}
-	else
-	{
-		console.log('Start waiting.');
-		wait_for_click = true;
-		console.log('Wait for click: ' + wait_for_click);
-		setTimeout(function()
+	console.log('Start waiting.');
+	wait_for_up = true;
+	console.log('Wait for up: ' + wait_for_up);
+	setTimeout(function()
+		{
+			console.log('timeout fired');
+			if (wait_for_up)
 			{
-				console.log('timeout fired');
-				if (wait_for_click)
-				{
-					wait_for_click = false;
-					if (child != -1)
-					{
-						window.location.href = '/system/' + child;
-					}
-				}
-			}, 300);
+				wait_for_up = false;
+				$('#modal-title-input').val(current_arr[current_click].name);
+				$('#modal-body-input').val(current_arr[current_click].body);
+				$('#modal-selected-color').val(rgb_to_h(current_arr[current_click].color));
+				$('#myModal').modal();
+			}
+		}, 700);
+}
+
+function modal_mouseup(e)
+{
+	// Select the planet
+	if (wait_for_up)
+	{
+		if (current_master_index != viewme)
+		{
+			window.location.href = '/system/' + current_master_index;
+		}
+		wait_for_up = false;
 	}
 }
 
