@@ -186,6 +186,7 @@ function populate_modal(e)
 		wait_for_click = false;
 		$('#modal-title-input').val(current_arr[current_click].name);
 		$('#modal-body-input').val(current_arr[current_click].body);
+		$('#modal-selected-color').val(rgb_to_h(current_arr[current_click].color));
 		$('#myModal').modal();
 	}
 	else
@@ -373,3 +374,40 @@ function new_func(e) {
 		window.location.href = '/system/' + result.id;
 	});
 }
+
+/*
+ * Adapted from formula given here:
+ * http://www.rapidtables.com/convert/color/rgb-to-hsv.htm
+ */
+function rgb_to_h(rgb_string)
+{
+	if (rgb_string[0] == '#')
+	{
+		rgb_string = rgb_string.substring(1);
+	}
+	var r = parseInt(rgb_string.substring(0, 2), 16) / 255.0;
+	var g = parseInt(rgb_string.substring(2, 4), 16) / 255.0;
+	var b = parseInt(rgb_string.substring(4, 6), 16) / 255.0;
+	var Cmax = Math.max(r, g, b);
+	var Cmin = Math.min(r, g, b);
+	var delta = Cmax - Cmin;
+	var h = 0;
+	if (delta == 0)
+	{
+		h = 0;
+	}
+	else if (Cmax == r)
+	{
+		h = 60 * (((g - b) / delta) % 6);
+	}
+	else if (Cmax == g)
+	{
+		h = 60 * ((b - r) / delta + 2);
+	}
+	else if (Cmax == b)
+	{
+		h = 60 * ((r - g) / delta + 4);
+	}
+	return h;
+}
+
