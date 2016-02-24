@@ -88,6 +88,11 @@
 
 	<script>var viewme={{viewme}}</script>
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<script>
+$(document).on('mobileinit', function () {
+	$.mobile.keepNative = 'select,input,button,textarea,div,a';
+});
+	</script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src='/js/toastr.min.js'></script>
 	<script src='/js/system.js'></script>

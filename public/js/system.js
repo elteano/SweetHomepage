@@ -56,6 +56,8 @@ function initializePage() {
 	$('.corner-3').click(populate_modal);
 	$('.middle').mousedown(populate_modal);
 	$('.middle').mouseup(modal_mouseup);
+	$('.middle').on('touchstart', populate_modal);
+	$('.middle').on('touchend', modal_mouseup);
 	$('#save-btn').click(save_modal);
 	$('#modal-tab-text').click(modal_text);
 	$('#modal-tab-color').click(modal_color);
@@ -118,6 +120,8 @@ function system_callback(response)
 			planet.find('.planet').css('background', '#' + response[i].color);
 			planet.children('.planet').mousedown(populate_modal);
 			planet.children('.planet').mouseup(modal_mouseup);
+			planet.children('.planet').on('touchstart', populate_modal);
+			planet.children('.planet').on('touchend', modal_mouseup);
 		}
 		setTimeout(function () {
 			var planets = $('.planet-wrapper');
