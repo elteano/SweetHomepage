@@ -60,8 +60,6 @@ exports.add = function (req, res)
 	console.log('adding object not yet implemented');
 	var newplanet = {
 		'parent': '-1',
-		'name': 'New System, Change Me!',
-		'body': 'Change me too!',
 		'color': '888888',
 		'moons': []
 	};
