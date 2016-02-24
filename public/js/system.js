@@ -54,7 +54,8 @@ function initializePage() {
 	$('.corner-1').click(populate_modal);
 	$('.corner-2').click(populate_modal);
 	$('.corner-3').click(populate_modal);
-	$('.middle').click(populate_modal);
+	$('.middle').mousedown(populate_modal);
+	$('.middle').mouseup(modal_mouseup);
 	$('#save-btn').click(save_modal);
 	$('#modal-tab-text').click(modal_text);
 	$('#modal-tab-color').click(modal_color);
@@ -115,8 +116,8 @@ function system_callback(response)
 			var planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable">'+planet_html(response[i], i)+'</div></div>');
 			planet.insertBefore('.corner-3');
 			planet.find('.planet').css('background', '#' + response[i].color);
-			planet.mousedown(populate_modal);
-			planet.mouseup(modal_mouseup);
+			planet.children('.planet').mousedown(populate_modal);
+			planet.children('.planet').mouseup(modal_mouseup);
 		}
 		setTimeout(function () {
 			var planets = $('.planet-wrapper');
