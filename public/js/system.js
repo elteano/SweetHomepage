@@ -95,6 +95,14 @@ function system_callback(response)
 {
 	console.log(response);
 	current_arr = response;
+	// This segment clears the existing elements
+	var content = $('.orbit-content');
+	var delthese = content.children('.planet-wrapper');
+	for (var i = 0; i < delthese.length; i++)
+	{
+		console.log(delthese[i]);
+		delthese[i].remove();
+	}
 	if (response.length > 0)
 	{
 		$('.middle').html(planet_html(response[0], 0));
@@ -107,9 +115,6 @@ function system_callback(response)
 			var planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable">'+planet_html(response[i], i)+'</div></div>');
 			planet.insertBefore('.corner-3');
 			planet.find('.planet').css('background', '#' + response[i].color);
-			// $('.corner-' + (i-1)).html(planet_html(response[i], i));
-			// $('.corner-' + (i-1)).css('background', '#' + response[i].color);
-			// $('.corner-' + (i-1)).show();
 			planet.click(populate_modal);
 		}
 		setTimeout(function () {

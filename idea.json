@@ -8,17 +8,7 @@
 			"body": "Welcome to Ideorbit!",
 			"moons": [
 				"1",
-				"2",
-				"3",
-				"4"
-			]
-		},
-		{
-			"parent": "0",
-			"name": "",
-			"color": "eeeeee",
-			"body": "Nothing here!",
-			"moons": [
+				"2"
 			]
 		},
 		{
@@ -31,17 +21,9 @@
 		},
 		{
 			"parent": "0",
-			"name": "Drag to trash to delete",
-			"color": "929456",
-			"body": "Nothing here still!",
-			"moons": [
-			]
-		},
-		{
-			"parent": "0",
-			"name": "Double tap to edit",
+			"name": "",
 			"color": "abcdef",
-			"body": "Change the title above to modify what you see in the overview!  Changes here will not be displayed in the overview, but will remain here for you to check later!",
+			"body": "",
 			"moons": [
 			]
 		},
@@ -51,8 +33,8 @@
 			"color": "99eeff",
 			"body": "An idea is a great thing. We don't want to see your ideas go to waste; this is why we create the Ideorbit app, which will help you remember all of your great ideas in an intuitive fashion.",
 			"moons": [
-				"5",
-				"6"
+				"4",
+				"5"
 			]
 		},
 		{
