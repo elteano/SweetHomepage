@@ -362,7 +362,7 @@ function add_child(e)
 	console.log('adding child');
 	var childinfo = {
 		'parent': viewme,
-		'color': 'aaaaaa',
+		'color': 'aaff00',
 		'moons': []
 	}
 	$.post('/add_child', childinfo, function(result)

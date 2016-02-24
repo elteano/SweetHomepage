@@ -60,7 +60,7 @@ exports.add = function (req, res)
 	console.log('adding object not yet implemented');
 	var newplanet = {
 		'parent': '-1',
-		'color': '888888',
+		'color': '0088ff',
 		'moons': []
 	};
 	ideas.ideas.push(newplanet);
