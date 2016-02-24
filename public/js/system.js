@@ -146,7 +146,12 @@ function system_callback(response)
  */
 function planet_html(json, id)
 {
-	return '<div>' + json.name + '</div><div id="ident" style="display:none;">' + id +
+	var title = "Double tap to edit";
+	if (json.name)
+	{
+		title = json.name;
+	}
+	return '<div>' + title + '</div><div id="ident" style="display:none;">' + id +
 	'</div>';
 }
 
@@ -351,8 +356,6 @@ function add_child(e)
 	console.log('adding child');
 	var childinfo = {
 		'parent': viewme,
-		'name': 'New Moon',
-		'body': 'Change me!',
 		'color': 'aaaaaa',
 		'moons': []
 	}

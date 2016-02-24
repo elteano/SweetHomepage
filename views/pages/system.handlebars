@@ -50,11 +50,13 @@
         <div class="modal-body">
 					<div id='modal-text-edit'>
 						<p>Title<br/>
-						<input type='text' id='modal-title-input' value='{{ideas.0.name}}' style='width:100%'></textarea>
+						<input type='text' id='modal-title-input' value='{{ideas.0.name}}'
+						style='width:100%' placeholder='Double tap to edit'></textarea>
 						</p>
 						<p>
 							Content<br/>
-						<textarea id='modal-body-input' style='width:100%; resize: none'>{{ideas.0.body}}</textarea>
+						<textarea id='modal-body-input' style='width:100%; resize: none'
+						placeholder='Edit me and the title above!'>{{ideas.0.body}}</textarea>
 						</p>
 					</div>
 					<div id='modal-color-edit' style='display:none;'>
