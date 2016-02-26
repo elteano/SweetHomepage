@@ -342,6 +342,11 @@ form {
 	pointer-events: all;
 }
 
+.glow
+{
+	box-shadow: 0px 0px 10px 5px rgba(0, 120, 240, 0.5);
+}
+
 .color-slider
 {
 	width: 100%;

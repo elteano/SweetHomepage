@@ -115,7 +115,15 @@ function system_callback(response)
 		var degrees = 360 / (response.length);
 		for (; i < response.length; i++)
 		{
-			var planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable">'+planet_html(response[i], i)+'</div></div>');
+			var planet;
+			if (response[i].name)
+			{
+				planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable">'+planet_html(response[i], i)+'</div></div>');
+			}
+			else
+			{
+				planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable glow">'+planet_html(response[i], i)+'</div></div>');
+			}
 			planet.insertBefore('.corner-3');
 			planet.find('.planet').css('background', '#' + response[i].color);
 			planet.children('.planet').mousedown(populate_modal);
