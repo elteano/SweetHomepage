@@ -9,15 +9,25 @@
 	<link href='/css/toastr.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+	
+	
+	
 	<!-- //Jesse's circle -->
   <meta charset="utf-8">
 	<title>Test</title>
 	<link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
-
+	<style>
+		.parents:last-child {
+			color: red;
+		}
+	</style>
 </head>
 <body>
-
+	<div>
+	{{#each parents}}
+		>  <a class="parents" href="/system/{{this}}">System{{this}}</a>
+	{{/each}}
+	</div>
 	<div class="orbit" id= 'circ'>
 			<div class="orbit-content">
 					<!--  commented out text from our old hardcoded planets (on different corners of the circle)-->
@@ -96,6 +106,7 @@ $(document).on('mobileinit', function () {
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src='/js/toastr.min.js'></script>
 	<script src='/js/system.js'></script>
+	
 </body>
 
 </html>

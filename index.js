@@ -13,10 +13,7 @@ app.set('port', (process.env.PORT || 3000));
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
-//app.use(express.urlencoded());
-
 app.use(express.static(__dirname + '/public'));
-
 app.get('/', index.view);
 app.get('/system/:id', system.view);
 app.get('/list', list.view);
@@ -25,6 +22,7 @@ app.get('/ssys', sysinfo.get_one);
 app.post('/add', edit.add);
 app.post('/edit', edit.edit);
 app.post('/add_child', edit.add_child);
+
 
 
 app.listen(app.get('port'), function() {
