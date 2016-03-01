@@ -63,6 +63,7 @@ function initializePage() {
 	$('#modal-tab-color').click(modal_color);
 	$('#add-child-btn').click(add_child);
 	$('#all-systems-btn').click(system_ga);
+	$('.parents').click(non_system_ga);
 }
 
 function color_slider_change(e)
@@ -270,6 +271,7 @@ function back_func(e)
 	};
 	if (current_arr[0].parent != "-1")
 	{
+		ga('send', 'event', 'all-systems', 'goodclick');
 		window.location.href = '/system/' + current_arr[0].parent;
 	}
 	else
@@ -429,11 +431,33 @@ function rgb_to_h(rgb_string)
 	return h;
 }
 
+// Sends the user to a page other than All Systems and informs Google Analytics
+// that the user performed a desirable action.
+function non_system_ga(e)
+{
+	e.preventDefault();
+	console.log(window.location.pathname);
+	// If they're navigating to the same page, then just leave them
+	if (window.location.pathname != $(this).attr('href'))
+	{
+		// If they don't have a parent, then don't compliment the user
+		if (current_arr[0].parent != '-1')
+		{
+			ga('send', 'event', 'all-systems', 'goodclick');
+		}
+		window.location.href = $(this).attr('href');
+	}
+}
+
+// Sends the user to the All Systems view and informs Google Analytics that the
+// user performed an undesirable action.
 function system_ga(e)
 {
 	e.preventDefault();
-	ga('send', 'event', 'all-systems', 'click');
-	console.log($(this));
+	if (current_arr[0].parent != '-1')
+	{
+		ga('send', 'event', 'all-systems', 'badclick');
+	}
 	window.location.href = $(this).attr('href');
 }
 
