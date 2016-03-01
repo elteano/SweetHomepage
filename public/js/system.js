@@ -32,8 +32,8 @@ var current_click = -1;
  * selected item.
  */
 var current_master_index = -1;
-// Variable used for processing double clicks.
-var wait_for_click = false;
+// Variable used for processing long clicks
+var wait_for_up = false;
 
 // All the initialization stuff.
 function initializePage() {
@@ -54,10 +54,14 @@ function initializePage() {
 	$('.corner-1').click(populate_modal);
 	$('.corner-2').click(populate_modal);
 	$('.corner-3').click(populate_modal);
-	$('.middle').click(populate_modal);
+	$('.middle').mousedown(populate_modal);
+	$('.middle').mouseup(modal_mouseup);
+	$('.middle').on('touchstart', populate_modal);
+	$('.middle').on('touchend', modal_mouseup);
 	$('#save-btn').click(save_modal);
 	$('#modal-tab-text').click(modal_text);
 	$('#modal-tab-color').click(modal_color);
+	$('#add-child-btn').click(add_child);
 }
 
 function color_slider_change(e)
@@ -94,6 +98,14 @@ function system_callback(response)
 {
 	console.log(response);
 	current_arr = response;
+	// This segment clears the existing elements
+	var content = $('.orbit-content');
+	var delthese = content.children('.planet-wrapper');
+	for (var i = 0; i < delthese.length; i++)
+	{
+		console.log(delthese[i]);
+		delthese[i].remove();
+	}
 	if (response.length > 0)
 	{
 		$('.middle').html(planet_html(response[0], 0));
@@ -103,13 +115,21 @@ function system_callback(response)
 		var degrees = 360 / (response.length);
 		for (; i < response.length; i++)
 		{
-			var planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable">'+planet_html(response[i], i)+'</div></div>');
+			var planet;
+			if (response[i].name)
+			{
+				planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable">'+planet_html(response[i], i)+'</div></div>');
+			}
+			else
+			{
+				planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable glow">'+planet_html(response[i], i)+'</div></div>');
+			}
 			planet.insertBefore('.corner-3');
 			planet.find('.planet').css('background', '#' + response[i].color);
-			// $('.corner-' + (i-1)).html(planet_html(response[i], i));
-			// $('.corner-' + (i-1)).css('background', '#' + response[i].color);
-			// $('.corner-' + (i-1)).show();
-			planet.click(populate_modal);
+			planet.children('.planet').mousedown(populate_modal);
+			planet.children('.planet').mouseup(modal_mouseup);
+			planet.children('.planet').on('touchstart', populate_modal);
+			planet.children('.planet').on('touchend', modal_mouseup);
 		}
 		setTimeout(function () {
 			var planets = $('.planet-wrapper');
@@ -145,7 +165,12 @@ function system_callback(response)
  */
 function planet_html(json, id)
 {
-	return '<div>' + json.name + '</div><div id="ident" style="display:none;">' + id +
+	var title = "Double tap to edit";
+	if (json.name)
+	{
+		title = json.name;
+	}
+	return '<div>' + title + '</div><div id="ident" style="display:none;">' + id +
 	'</div>';
 }
 
@@ -161,7 +186,7 @@ function planet_html(json, id)
 function populate_modal(e)
 {
 	e.preventDefault();
-	console.log('modal stuff: ' + wait_for_click);
+	console.log('modal stuff: ' + wait_for_up);
 	var child = -1;
 	current_click = $(this).find('#ident').text();
 	if (current_click != 0)
@@ -174,31 +199,33 @@ function populate_modal(e)
 	{
 		current_master_index = viewme;
 	}
-	if (wait_for_click)
-	{
-		console.log('We waited, they came.');
-		wait_for_click = false;
-		$('#modal-title-input').val(current_arr[current_click].name);
-		$('#modal-body-input').val(current_arr[current_click].body);
-		$('#myModal').modal();
-	}
-	else
-	{
-		console.log('Start waiting.');
-		wait_for_click = true;
-		console.log('Wait for click: ' + wait_for_click);
-		setTimeout(function()
+	console.log('Start waiting.');
+	wait_for_up = true;
+	console.log('Wait for up: ' + wait_for_up);
+	setTimeout(function()
+		{
+			console.log('timeout fired');
+			if (wait_for_up)
 			{
-				console.log('timeout fired');
-				if (wait_for_click)
-				{
-					wait_for_click = false;
-					if (child != -1)
-					{
-						window.location.href = '/system/' + child;
-					}
-				}
-			}, 300);
+				wait_for_up = false;
+				$('#modal-title-input').val(current_arr[current_click].name);
+				$('#modal-body-input').val(current_arr[current_click].body);
+				$('#modal-selected-color').val(rgb_to_h(current_arr[current_click].color));
+				$('#myModal').modal();
+			}
+		}, 700);
+}
+
+function modal_mouseup(e)
+{
+	// Select the planet
+	if (wait_for_up)
+	{
+		if (current_master_index != viewme)
+		{
+			window.location.href = '/system/' + current_master_index;
+		}
+		wait_for_up = false;
 	}
 }
 
@@ -345,10 +372,62 @@ function h_to_rgb(hue)
 	return '' + r + g + b;
 }
 
-function new_func(e) {
-
-	console.log(current_arr.length-1);
-	$.get("/system/"+current_arr.length-1,callBack);
-
-
+function add_child(e)
+{
+	console.log('adding child');
+	var childinfo = {
+		'parent': viewme,
+		'color': 'aaff00',
+		'moons': []
+	}
+	$.post('/add_child', childinfo, function(result)
+	{
+		console.log('add child stuff');
+		location.reload();
+	});
 }
+
+function new_func(e) {
+	e.preventDefault();
+	$.post('/add', function(result)
+	{
+		window.location.href = '/system/' + result.id;
+	});
+}
+
+/*
+ * Adapted from formula given here:
+ * http://www.rapidtables.com/convert/color/rgb-to-hsv.htm
+ */
+function rgb_to_h(rgb_string)
+{
+	if (rgb_string[0] == '#')
+	{
+		rgb_string = rgb_string.substring(1);
+	}
+	var r = parseInt(rgb_string.substring(0, 2), 16) / 255.0;
+	var g = parseInt(rgb_string.substring(2, 4), 16) / 255.0;
+	var b = parseInt(rgb_string.substring(4, 6), 16) / 255.0;
+	var Cmax = Math.max(r, g, b);
+	var Cmin = Math.min(r, g, b);
+	var delta = Cmax - Cmin;
+	var h = 0;
+	if (delta == 0)
+	{
+		h = 0;
+	}
+	else if (Cmax == r)
+	{
+		h = 60 * (((g - b) / delta) % 6);
+	}
+	else if (Cmax == g)
+	{
+		h = 60 * ((b - r) / delta + 2);
+	}
+	else if (Cmax == b)
+	{
+		h = 60 * ((r - g) / delta + 4);
+	}
+	return h;
+}
+

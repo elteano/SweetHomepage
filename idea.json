@@ -4,69 +4,51 @@
 		{
 			"parent": "-1",
 			"name": "Welcome!",
-			"color": "aaeeff",
+			"color": "00cbff",
 			"body": "Welcome to Ideorbit!",
 			"moons": [
 				"1",
-				"2",
-				"3",
-				"4"
-			]
-		},
-		{
-			"parent": "0",
-			"name": "",
-			"color": "eeeeee",
-			"body": "Nothing here!",
-			"moons": [
+				"2"
 			]
 		},
 		{
 			"parent": "0",
 			"name": "Tap to View",
-			"color": "eeeeee",
+			"color": "fffa00",
 			"body": "Nothing here!",
 			"moons": [
 			]
 		},
 		{
 			"parent": "0",
-			"name": "Drag to trash to delete",
-			"color": "929456",
-			"body": "Nothing here still!",
-			"moons": [
-			]
-		},
-		{
-			"parent": "0",
-			"name": "Double tap to edit",
-			"color": "abcdef",
-			"body": "Change the title above to modify what you see in the overview!  Changes here will not be displayed in the overview, but will remain here for you to check later!",
+			"name": "",
+			"color": "00ff6a",
+			"body": "",
 			"moons": [
 			]
 		},
 		{
 			"parent": "-1",
 			"name":	"Sweet Idea",
-			"color": "99eeff",
+			"color": "b600ff",
 			"body": "An idea is a great thing. We don't want to see your ideas go to waste; this is why we create the Ideorbit app, which will help you remember all of your great ideas in an intuitive fashion.",
 			"moons": [
-				"5",
-				"6"
+				"4",
+				"5"
 			]
 		},
 		{
-			"parent": "4",
+			"parent": "3",
 			"name": "Sweet Children",
-			"color": "0f10aa",
+			"color": "00fff6",
 			"body": "I'm a kid yo",
 			"moons": [
 			]
 		},
 		{
-			"parent": "4",
+			"parent": "3",
 			"name": "Sweet Kiddo Two",
-			"color": "ee1144",
+			"color": "ff6600",
 			"body": "Sup squiddo",
 			"moons": [
 			]
