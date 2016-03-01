@@ -36,6 +36,30 @@ exports.view = function(req, res)
 	res.render('pages/system', idea);
 }
 
+exports.viewOld = function (req, res)
+{
+	idea.helpers = {
+		"sysclip": function(str) {
+				if (str.length > 25)
+				{
+					return str.substring(0, 25) + '...';
+				}
+				return str;
+		},
+		"dumblook": function(ind1, ind2)
+		{
+			return idea.ideas[idea.ideas[ind1].moons[ind2]].name;
+		},
+		"dumbcolor": function(ind1, ind2)
+		{
+			return idea.ideas[idea.ideas[ind1].moons[ind2]].color;
+		}
+	};
+	idea.viewme = req.params.id;
+
+	res.render('pages/system', idea);
+}
+
 exports.addSystem = function(req, res) {
 idea["ideas"].push({
 			"parent": "-1",

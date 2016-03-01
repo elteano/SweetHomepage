@@ -16,14 +16,13 @@ app.set('view engine', 'handlebars');
 app.use(express.static(__dirname + '/public'));
 app.get('/', index.view);
 app.get('/system/:id', system.view);
+app.get('/systema/:id', system.viewOld);
 app.get('/list', list.view);
 app.get('/sysinfo', sysinfo.get_info);
 app.get('/ssys', sysinfo.get_one);
 app.post('/add', edit.add);
 app.post('/edit', edit.edit);
 app.post('/add_child', edit.add_child);
-
-
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
