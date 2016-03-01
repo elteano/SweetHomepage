@@ -289,7 +289,6 @@ function circle()
 {
 	var width = $(window).width() / 2;
 	var height = $(window).height() * 6 / 10;
-	console.log('first width: ' + width);
 	if (width < height)
 	{
 		height = width;
@@ -298,7 +297,6 @@ function circle()
 	{
 		width = height;
 	}
-	console.log('second width: ' + width);
 	var loff = $('#circ').offset().left;
 	var center = ($(window).width() - height)/ 2 - loff;
 
@@ -314,7 +312,6 @@ function circle()
 
   $('.planet_title').css('top', title_y);
   $('.planet_title').css('left', title_x);
-	console.log('friendly firebats');
 }
 
 function h_to_rgb(hue)
