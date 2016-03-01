@@ -62,6 +62,7 @@ function initializePage() {
 	$('#modal-tab-text').click(modal_text);
 	$('#modal-tab-color').click(modal_color);
 	$('#add-child-btn').click(add_child);
+	$('#all-systems-btn').click(system_ga);
 }
 
 function color_slider_change(e)
@@ -429,5 +430,13 @@ function rgb_to_h(rgb_string)
 		h = 60 * ((r - g) / delta + 4);
 	}
 	return h;
+}
+
+function system_ga(e)
+{
+	e.preventDefault();
+	ga('send', 'event', 'all-systems', 'click');
+	console.log($(this));
+	window.location.href = $(this).attr('href');
 }
 
