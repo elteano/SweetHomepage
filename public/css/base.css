@@ -198,6 +198,12 @@ form {
 		left: 0 !important;
 }
 
+@media screen and (max-width: 480px) {
+	.orbit {
+		font-size: 2.5vw;
+	}
+}
+
 .orbit::after {
     content: "";
     display: block;
