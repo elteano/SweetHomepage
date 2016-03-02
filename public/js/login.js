@@ -83,7 +83,7 @@ function on_login(e)
 			{
 				toastr.success('Welcome back!');
 				found = true;
-				window.location.href = '/system/0';
+				window.location.href = '/system?sys=0';
 			}
 		}
 	}
