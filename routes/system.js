@@ -19,12 +19,19 @@ exports.view = function(req, res)
 			return idea.ideas[idea.ideas[ind1].moons[ind2]].color;
 		}
 	};
-	idea.viewme = req.params.id;
+	if (req.query.sys)
+	{
+		idea.viewme = req.query.sys;
+	}
+	else
+	{
+		idea.viewme = 0;
+	}
 	
-	var arr=[req.params.id];
+	var arr=[idea.viewme];
 	var parent = undefined;
-	if (idea.ideas[req.params.id] != undefined)
-	 	parent = idea.ideas[req.params.id].parent;
+	if (idea.ideas[idea.viewme] != undefined)
+	 	parent = idea.ideas[idea.viewme].parent;
 	while (parent != undefined && parent != -1)
 	{
 		
@@ -38,6 +45,14 @@ exports.view = function(req, res)
 
 exports.viewOld = function (req, res)
 {
+	if (req.query.sys)
+	{
+		idea.viewme = req.query.sys;
+	}
+	else
+	{
+		idea.viewme = 0;
+	}
 	idea.helpers = {
 		"sysclip": function(str) {
 				if (str.length > 25)
@@ -55,7 +70,6 @@ exports.viewOld = function (req, res)
 			return idea.ideas[idea.ideas[ind1].moons[ind2]].color;
 		}
 	};
-	idea.viewme = req.params.id;
 
 	idea.parents = [];
 
