@@ -167,7 +167,7 @@ function system_callback(response)
  */
 function planet_html(json, id)
 {
-	var title = "Double tap to edit";
+	var title = "Long press to edit";
 	if (json.name)
 	{
 		title = json.name;
