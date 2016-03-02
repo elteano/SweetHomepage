@@ -57,6 +57,8 @@ exports.viewOld = function (req, res)
 	};
 	idea.viewme = req.params.id;
 
+	idea.parents = [];
+
 	res.render('pages/system', idea);
 }
 
