@@ -225,7 +225,7 @@ function modal_mouseup(e)
 	{
 		if (current_master_index != viewme)
 		{
-			window.location.href = '/system/' + current_master_index;
+			window.location.href = '/system?sys=' + current_master_index;
 		}
 		wait_for_up = false;
 	}
@@ -272,7 +272,7 @@ function back_func(e)
 	if (current_arr[0].parent != "-1")
 	{
 		ga('send', 'event', 'all-systems', 'goodclick');
-		window.location.href = '/system/' + current_arr[0].parent;
+		window.location.href = '/system?sys=' + current_arr[0].parent;
 	}
 	else
 	{
@@ -391,7 +391,7 @@ function new_func(e) {
 	e.preventDefault();
 	$.post('/add', function(result)
 	{
-		window.location.href = '/system/' + result.id;
+		window.location.href = '/system?sys=' + result.id;
 	});
 }
 

@@ -85,5 +85,5 @@ idea["ideas"].push({
 			"moons": []
 
 });
-res.render('pages/system/' + (idea.ideas.length-1),idea);
+res.render('pages/system?sys=' + (idea.ideas.length-1),idea);
 }
