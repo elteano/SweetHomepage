@@ -28,14 +28,18 @@ exports.view = function(req, res)
 		idea.viewme = 0;
 	}
 	
-	var arr=[idea.viewme];
+	var arr=[{'id': idea.viewme, 'name': idea.ideas[idea.viewme].name}];
 	var parent = undefined;
 	if (idea.ideas[idea.viewme] != undefined)
 	 	parent = idea.ideas[idea.viewme].parent;
 	while (parent != undefined && parent != -1)
 	{
 		
-		arr.unshift(parent);
+		var pob = {
+			'id': parent,
+			'name': idea.ideas[parent].name
+		};
+		arr.unshift(pob);
 		parent = idea.ideas[parent].parent;
 	
 	}
