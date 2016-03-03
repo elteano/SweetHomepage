@@ -13,10 +13,11 @@
 		},
 		{
 			"parent": "0",
-			"name": "Tap to View",
+			"name": "Tap to Navigate Deeper",
 			"color": "fffa00",
 			"body": "Nothing here!",
 			"moons": [
+				"6"
 			]
 		},
 		{
@@ -52,6 +53,11 @@
 			"body": "Sup squiddo",
 			"moons": [
 			]
+		},
+		{
+			"parent": "1",
+			"name": "Go deeper still!",
+			"color": "fffa00"
 		}
 	]
 }
