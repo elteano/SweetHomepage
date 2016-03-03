@@ -2,17 +2,23 @@
 
 <html>
 <head>
-	<title>Catchi/Ideorbit</title>	
+	<title>Catchi/Ideorbit</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/css/base.css" rel="stylesheet">
 	<link href="/css/list.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
 </head>
 
 <body>
 
 <div class='list_title'>
-<h1 id='title'>Central Ideas</h1>
+<h1 id='title'>Systems</h1>
 </div>
 
 <div class='listcontainer'>
@@ -22,12 +28,16 @@
 	<input type='text' id='searchbar'></input>
 </div>
 <div class='footer'>
-	<div><button id='search'>Search</button></div>
-	<div><button id='new-btn'>New</button></div>
+	<div><button id='search' class= "btn btn-default"><span class="glyphicon
+	glyphicon-search"></span>Search</button></div>
+	<div><a href='/system'><button id='new' class="btn btn-default" ><span class="glyphicon
+	glyphicon-plus-sign"></span>&nbsp;New System</button></a></div>
 </div>
+
+
+
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src='js/search.js'></script>
 </body>
 
 </html>
-

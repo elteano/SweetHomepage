@@ -286,8 +286,8 @@ function back_func(e)
  */
 function circle()
 {
-	var width = $(window).width() / 2;
-	var height = $(window).height() * 6 / 10;
+	var width = $(window).width() / 2  ;
+	var height = $(window).height() * 9/ 10 ;
 	console.log('first width: ' + width);
 	if (width < height)
 	{
@@ -298,6 +298,7 @@ function circle()
 		width = height;
 	}
 	console.log('second width: ' + width);
+	console.log('hi');
 	var loff = $('#circ').offset().left;
 	var center = ($(window).width() - height)/ 2 - loff;
 
@@ -430,4 +431,3 @@ function rgb_to_h(rgb_string)
 	}
 	return h;
 }
-

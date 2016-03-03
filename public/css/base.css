@@ -81,7 +81,8 @@ html body {
 	left: 0;
 	display: table;
 	table-layout: fixed;
-	background: #f0fefe;
+	background: #ffffff;
+	font-family: 'Lato', serif;
 }
 
 .header div
@@ -201,6 +202,10 @@ form {
 @media screen and (max-width: 480px) {
 	.orbit {
 		font-size: 2.5vw;
+	/*	height: 187.5px;
+		width: 187.5px;
+		top: 46.875px;
+		left: -37.5 px; */
 	}
 }
 
