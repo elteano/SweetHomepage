@@ -32,6 +32,10 @@ exports.view = function(req, res)
 	var parent = undefined;
 	if (idea.ideas[idea.viewme] != undefined)
 	 	parent = idea.ideas[idea.viewme].parent;
+	if (!arr[0].name)
+	{
+		arr[0].name = 'Unnamed, name me!';
+	}
 	while (parent != undefined && parent != -1)
 	{
 		
@@ -39,6 +43,10 @@ exports.view = function(req, res)
 			'id': parent,
 			'name': idea.ideas[parent].name
 		};
+		if (!pob.name)
+		{
+			pob.name = 'Unnamed, name me!';
+		}
 		arr.unshift(pob);
 		parent = idea.ideas[parent].parent;
 	
