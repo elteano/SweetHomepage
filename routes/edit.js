@@ -90,6 +90,10 @@ exports.add_child = function (req, res)
 		{
 			ideas.ideas[input.parent].moons = [];
 		}
+		if (!(ideas.ideas[input.parent].moons.constructor === Array))
+		{
+			ideas.ideas[input.parent].moons = [ideas.ideas[input.parent].moons];
+		}
 		ideas.ideas[input.parent].moons.push(ideas.ideas.length - 1);
 		console.log('updated parent:');
 		console.log(ideas.ideas[input.parent]);
