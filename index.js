@@ -18,14 +18,19 @@ app.set('view engine', 'handlebars');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', index.view);
-app.get('/system/:id', system.view);
+app.get('/systema', system.view);
+app.get('/system', system.viewOld);
 app.get('/list', list.view);
 app.get('/sysinfo', sysinfo.get_info);
 app.get('/ssys', sysinfo.get_one);
 app.post('/add', edit.add);
 app.post('/edit', edit.edit);
+<<<<<<< HEAD
 app.get('/system/:id', system.addSystem);
 
+=======
+app.post('/add_child', edit.add_child);
+>>>>>>> 9f147cc6523ccd4924b7126bc774e3414c4623de
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

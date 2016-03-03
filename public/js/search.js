@@ -96,7 +96,7 @@ function planet_click(e)
 	e.preventDefault();
 	var id = $(this).find('.id').text();
 	console.log;
-	window.location.href = '/system/' + id;
+	window.location.href = '/system?sys=' + id;
 }
 
 function new_click(e)
@@ -104,7 +104,7 @@ function new_click(e)
 	e.preventDefault();
 	$.post('/add', function(result)
 	{
-		window.location.href = '/system/' + result.id;
+		window.location.href = '/system?sys=' + result.id;
 	});
 }
 

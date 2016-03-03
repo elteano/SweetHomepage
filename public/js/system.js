@@ -62,6 +62,8 @@ function initializePage() {
 	$('#modal-tab-text').click(modal_text);
 	$('#modal-tab-color').click(modal_color);
 	$('#add-child-btn').click(add_child);
+	$('#all-systems-btn').click(system_ga);
+	$('.parents').click(non_system_ga);
 }
 
 function color_slider_change(e)
@@ -165,7 +167,7 @@ function system_callback(response)
  */
 function planet_html(json, id)
 {
-	var title = "Double tap to edit";
+	var title = "Long press to edit";
 	if (json.name)
 	{
 		title = json.name;
@@ -223,7 +225,7 @@ function modal_mouseup(e)
 	{
 		if (current_master_index != viewme)
 		{
-			window.location.href = '/system/' + current_master_index;
+			window.location.href = '/system?sys=' + current_master_index;
 		}
 		wait_for_up = false;
 	}
@@ -269,7 +271,8 @@ function back_func(e)
 	};
 	if (current_arr[0].parent != "-1")
 	{
-		window.location.href = '/system/' + current_arr[0].parent;
+		ga('send', 'event', 'all-systems', 'goodclick');
+		window.location.href = '/system?sys=' + current_arr[0].parent;
 	}
 	else
 	{
@@ -286,9 +289,14 @@ function back_func(e)
  */
 function circle()
 {
+
 	var width = $(window).width() / 2  ;
 	var height = $(window).height() * 9/ 10 ;
 	console.log('first width: ' + width);
+
+	var width = $(window).width() / 2;
+	var height = $(window).height() * 6 / 10;
+
 	if (width < height)
 	{
 		height = width;
@@ -297,8 +305,10 @@ function circle()
 	{
 		width = height;
 	}
+
 	console.log('second width: ' + width);
 	console.log('hi');
+
 	var loff = $('#circ').offset().left;
 	var center = ($(window).width() - height)/ 2 - loff;
 
@@ -314,7 +324,6 @@ function circle()
 
   $('.planet_title').css('top', title_y);
   $('.planet_title').css('left', title_x);
-	console.log('friendly firebats');
 }
 
 function h_to_rgb(hue)
@@ -392,7 +401,7 @@ function new_func(e) {
 	e.preventDefault();
 	$.post('/add', function(result)
 	{
-		window.location.href = '/system/' + result.id;
+		window.location.href = '/system?sys=' + result.id;
 	});
 }
 
@@ -430,4 +439,35 @@ function rgb_to_h(rgb_string)
 		h = 60 * ((r - g) / delta + 4);
 	}
 	return h;
+}
+
+
+// Sends the user to a page other than All Systems and informs Google Analytics
+// that the user performed a desirable action.
+function non_system_ga(e)
+{
+	e.preventDefault();
+	console.log(window.location.pathname);
+	// If they're navigating to the same page, then just leave them
+	if (window.location.pathname != $(this).attr('href'))
+	{
+		// If they don't have a parent, then don't compliment the user
+		if (current_arr[0].parent != '-1')
+		{
+			ga('send', 'event', 'all-systems', 'goodclick');
+		}
+		window.location.href = $(this).attr('href');
+	}
+}
+
+// Sends the user to the All Systems view and informs Google Analytics that the
+// user performed an undesirable action.
+function system_ga(e)
+{
+	e.preventDefault();
+	if (current_arr[0].parent != '-1')
+	{
+		ga('send', 'event', 'all-systems', 'badclick');
+	}
+	window.location.href = $(this).attr('href');
 }

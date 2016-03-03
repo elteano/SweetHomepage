@@ -19,20 +19,64 @@ exports.view = function(req, res)
 			return idea.ideas[idea.ideas[ind1].moons[ind2]].color;
 		}
 	};
-	idea.viewme = req.params.id;
+	if (req.query.sys)
+	{
+		idea.viewme = req.query.sys;
+	}
+	else
+	{
+		idea.viewme = 0;
+	}
 	
-	var arr=[req.params.id];
+	var arr=[{'id': idea.viewme, 'name': idea.ideas[idea.viewme].name}];
 	var parent = undefined;
-	if (idea.ideas[req.params.id] != undefined)
-	 	parent = idea.ideas[req.params.id].parent;
+	if (idea.ideas[idea.viewme] != undefined)
+	 	parent = idea.ideas[idea.viewme].parent;
 	while (parent != undefined && parent != -1)
 	{
 		
-		arr.unshift(parent);
+		var pob = {
+			'id': parent,
+			'name': idea.ideas[parent].name
+		};
+		arr.unshift(pob);
 		parent = idea.ideas[parent].parent;
 	
 	}
 	idea.parents = arr;
+	res.render('pages/system', idea);
+}
+
+exports.viewOld = function (req, res)
+{
+	if (req.query.sys)
+	{
+		idea.viewme = req.query.sys;
+	}
+	else
+	{
+		idea.viewme = 0;
+	}
+	idea.helpers = {
+		"sysclip": function(str) {
+				if (str.length > 25)
+				{
+					return str.substring(0, 25) + '...';
+				}
+				return str;
+		},
+		"dumblook": function(ind1, ind2)
+		{
+			return idea.ideas[idea.ideas[ind1].moons[ind2]].name;
+		},
+		"dumbcolor": function(ind1, ind2)
+		{
+			return idea.ideas[idea.ideas[ind1].moons[ind2]].color;
+		}
+	};
+
+	idea.parents = [];
+
 	res.render('pages/system', idea);
 }
 
@@ -45,5 +89,5 @@ idea["ideas"].push({
 			"moons": []
 
 });
-res.render('pages/system/' + (idea.ideas.length-1),idea);
+res.render('pages/system?sys=' + (idea.ideas.length-1),idea);
 }
