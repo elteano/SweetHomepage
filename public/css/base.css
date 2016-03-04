@@ -355,6 +355,11 @@ form {
 	box-shadow: 0px 0px 10px 5px rgba(0, 120, 240, 0.5);
 }
 
+.infoglow
+{
+	box-shadow: 0px 0px 10px 5px rgba(160, 120, 0, 0.5);
+}
+
 .color-slider
 {
 	width: 100%;

@@ -112,19 +112,31 @@ function system_callback(response)
 	{
 		$('.middle').html(planet_html(response[0], 0));
 		$('.middle').css('background', '#' + response[0].color);
+		if (!response[0].name)
+		{
+			$('.middle').addClass('glow');
+		}
+		else if (response[0].body)
+		{
+			$('.middle').addClass('infoglow');
+		}
 		var i = 1;
 		var startDegree = -45;
 		var degrees = 360 / (response.length);
 		for (; i < response.length; i++)
 		{
 			var planet;
-			if (response[i].name)
+			if (!response[i].name)
 			{
-				planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable">'+planet_html(response[i], i)+'</div></div>');
+				planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable glow">'+planet_html(response[i], i)+'</div></div>');
+			}
+			else if (response[i].body)
+			{
+				planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable infoglow">'+planet_html(response[i], i)+'</div></div>');
 			}
 			else
 			{
-				planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable glow">'+planet_html(response[i], i)+'</div></div>');
+				planet = $('<div class="planet-wrapper"><div class="planet vertical-center-text unselectable">'+planet_html(response[i], i)+'</div></div>');
 			}
 			planet.insertBefore('.corner-3');
 			planet.find('.planet').css('background', '#' + response[i].color);
