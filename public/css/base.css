@@ -81,8 +81,7 @@ html body {
 	left: 0;
 	display: table;
 	table-layout: fixed;
-	background: #ffffff;
-	font-family: 'Lato', serif;
+	background: #f0fefe;
 }
 
 .header div
@@ -202,10 +201,6 @@ form {
 @media screen and (max-width: 480px) {
 	.orbit {
 		font-size: 2.5vw;
-	/*	height: 187.5px;
-		width: 187.5px;
-		top: 46.875px;
-		left: -37.5 px; */
 	}
 }
 
@@ -399,4 +394,14 @@ form {
 				1),hsla(290, 100%, 50%, 1),hsla(300, 100%, 50%, 1),hsla(310, 100%, 50%,
 				1),hsla(320, 100%, 50%, 1),hsla(330, 100%, 50%, 1),hsla(340, 100%, 50%,
 				1),hsla(350, 100%, 50%, 1),hsla(360, 100%, 50%, 1));
+}
+
+#splashscreen {
+    position:absolute;
+    top:30;
+    left:0;
+    bottom:0;
+    width:100%;
+    background-color:white;
+    font-family: 'Lato', sans-serif;
 }
