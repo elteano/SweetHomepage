@@ -91,9 +91,9 @@ exports.viewOld = function (req, res)
 exports.addSystem = function(req, res) {
 idea["ideas"].push({
 			"parent": "-1",
-			"name": 'New Idea',
-			"color": '888888',
-			"body": 'Fill me in',
+			"name": '',
+			"color": '88ff00',
+			"body": '',
 			"moons": []
 
 });
