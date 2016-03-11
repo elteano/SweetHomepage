@@ -18,8 +18,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', index.view);
-app.get('/systema', system.view);
-app.get('/system', system.viewOld);
+app.get('/system', system.view);
 app.get('/list', list.view);
 app.get('/sysinfo', sysinfo.get_info);
 app.get('/ssys', sysinfo.get_one);
