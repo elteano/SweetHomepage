@@ -17,7 +17,7 @@
 			"color": "fffa00",
 			"body": "Nothing here!",
 			"moons": [
-				"6"
+				"3"
 			]
 		},
 		{
@@ -25,32 +25,6 @@
 			"name": "",
 			"color": "00ff6a",
 			"body": "",
-			"moons": [
-			]
-		},
-		{
-			"parent": "-1",
-			"name":	"Sweet Idea",
-			"color": "b600ff",
-			"body": "An idea is a great thing. We don't want to see your ideas go to waste; this is why we create the Ideorbit app, which will help you remember all of your great ideas in an intuitive fashion.",
-			"moons": [
-				"4",
-				"5"
-			]
-		},
-		{
-			"parent": "3",
-			"name": "Sweet Children",
-			"color": "00fff6",
-			"body": "I'm a kid yo",
-			"moons": [
-			]
-		},
-		{
-			"parent": "3",
-			"name": "Sweet Kiddo Two",
-			"color": "ff6600",
-			"body": "Sup squiddo",
 			"moons": [
 			]
 		},
