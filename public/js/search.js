@@ -61,8 +61,13 @@ function search_input_changed(e)
 function get_planet_html(obj, id)
 {
 	var width = $('.listcontainer').width() / 2;
+	var name = obj.planet.name;
+	if (!name)
+	{
+		name = 'Unnamed System';
+	}
 	var html = '<div class="systemplanet" style="background: #' + obj.planet.color +
-		';"><span>' + obj.planet.name + '</span><div class="id">' + obj.ind + '</div></div>'
+		';"><span>' + name + '</span><div class="id">' + obj.ind + '</div></div>'
 	return html;
 }
 
