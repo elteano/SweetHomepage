@@ -12,7 +12,7 @@ function initializePage()
 	$('#search').click(search_click);
 	$('#searchbar').on('input', search_input_changed);
 	$('.systemplanet').click(planet_click);
-	$('#new-btn').click(new_click);
+	$('#new').click(new_click);
 }
 
 var search_toggle = false;
